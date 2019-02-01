@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+protocol AuthorizationServiceInput: class {
+    func authorize() //запустит vk sdk получит токен,
+}
+
+//происходит аутпут в интерактор затем в презентер и показываются новости, а так view controller это заглушка в модуле авторизации
+protocol AuthorizationServiceOutput: class {
+    func authorizationCompleted()
+    func authorizationFailed(withError error: Error)
+    func exceptionRose(data: AuthorizationData) //если нет установленного VK app , то выводится safari view controller с веб-авторизацией
+}

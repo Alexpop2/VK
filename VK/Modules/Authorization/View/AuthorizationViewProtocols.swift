@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol AuthorizationViewInput: class {
+    var output: AuthorizationViewOutput { get set }
+}
+
+protocol AuthorizationViewOutput: class {
+    func viewDidAppear()
+}

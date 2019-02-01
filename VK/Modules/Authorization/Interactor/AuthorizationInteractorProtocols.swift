@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+protocol AuthorizationInteractorInput: class {
+    var output: AuthorizationInteractorOutput { get set }
+    func authorize()
+}
+
+protocol AuthorizationInteractorOutput: class {
+    func authorizationCompleted()
+    func authorizationFailed(withError error: Error)
+    func exceptionRose(data: AuthorizationData)
+}

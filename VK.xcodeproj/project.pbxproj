@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		602ABE0B21FCB3E50070980A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE0A21FCB3E50070980A /* AppDelegate.swift */; };
-		602ABE0D21FCB3E50070980A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE0C21FCB3E50070980A /* ViewController.swift */; };
-		602ABE1021FCB3E50070980A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE0E21FCB3E50070980A /* Main.storyboard */; };
 		602ABE1221FCB3E60070980A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE1121FCB3E60070980A /* Assets.xcassets */; };
 		602ABE1521FCB3E60070980A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE1321FCB3E60070980A /* LaunchScreen.storyboard */; };
 		602ABE2021FCB3E60070980A /* VKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE1F21FCB3E60070980A /* VKTests.swift */; };
 		602ABE2B21FCB3E60070980A /* VKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE2A21FCB3E60070980A /* VKUITests.swift */; };
+		602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4221FCB6F60070980A /* AuthorizationInteractor.swift */; };
+		602ABE4521FCB70B0070980A /* AuthorizationInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4421FCB70B0070980A /* AuthorizationInteractorProtocols.swift */; };
+		602ABE4721FCB71A0070980A /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4621FCB71A0070980A /* AuthorizationPresenter.swift */; };
+		602ABE4921FCB7260070980A /* AuthorizationPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4821FCB7260070980A /* AuthorizationPresenterProtocols.swift */; };
+		602ABE4B21FCB73E0070980A /* AuthorizationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE4A21FCB73E0070980A /* AuthorizationStoryboard.storyboard */; };
+		602ABE4D21FCB7B10070980A /* AuthorizationViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4C21FCB7B10070980A /* AuthorizationViewProtocols.swift */; };
+		602ABE4F21FCC1F40070980A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4E21FCC1F40070980A /* AuthorizationService.swift */; };
+		602ABE5221FCC22D0070980A /* AuthorizationServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */; };
+		602ABE5421FCC5330070980A /* AuthorizationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5321FCC5330070980A /* AuthorizationData.swift */; };
+		608B51DE2204992300728026 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608B51DD2204992300728026 /* AuthorizationViewController.swift */; };
+		974E61F11059091E75F45E1F /* Pods_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C2FA0F42CF72B51889881 /* Pods_VK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +45,6 @@
 /* Begin PBXFileReference section */
 		602ABE0721FCB3E50070980A /* VK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		602ABE0A21FCB3E50070980A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		602ABE0C21FCB3E50070980A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		602ABE0F21FCB3E50070980A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		602ABE1121FCB3E60070980A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		602ABE1421FCB3E60070980A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		602ABE1621FCB3E60070980A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +54,19 @@
 		602ABE2621FCB3E60070980A /* VKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		602ABE2A21FCB3E60070980A /* VKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKUITests.swift; sourceTree = "<group>"; };
 		602ABE2C21FCB3E60070980A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		602ABE4221FCB6F60070980A /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
+		602ABE4421FCB70B0070980A /* AuthorizationInteractorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorProtocols.swift; sourceTree = "<group>"; };
+		602ABE4621FCB71A0070980A /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		602ABE4821FCB7260070980A /* AuthorizationPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterProtocols.swift; sourceTree = "<group>"; };
+		602ABE4A21FCB73E0070980A /* AuthorizationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizationStoryboard.storyboard; sourceTree = "<group>"; };
+		602ABE4C21FCB7B10070980A /* AuthorizationViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewProtocols.swift; sourceTree = "<group>"; };
+		602ABE4E21FCC1F40070980A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocols.swift; sourceTree = "<group>"; };
+		602ABE5321FCC5330070980A /* AuthorizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationData.swift; sourceTree = "<group>"; };
+		608B51DD2204992300728026 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		8717FE620F043EA598D93843 /* Pods-VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VK/Pods-VK.debug.xcconfig"; sourceTree = "<group>"; };
+		C13C2FA0F42CF72B51889881 /* Pods_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6DFED0D1FAA011687E4819F /* Pods-VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.release.xcconfig"; path = "Pods/Target Support Files/Pods-VK/Pods-VK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974E61F11059091E75F45E1F /* Pods_VK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4557F2A9BEC7820CB31A3E1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8717FE620F043EA598D93843 /* Pods-VK.debug.xcconfig */,
+				C6DFED0D1FAA011687E4819F /* Pods-VK.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		602ABDFE21FCB3E40070980A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,8 @@
 				602ABE1E21FCB3E60070980A /* VKTests */,
 				602ABE2921FCB3E60070980A /* VKUITests */,
 				602ABE0821FCB3E50070980A /* Products */,
+				4557F2A9BEC7820CB31A3E1C /* Pods */,
+				C245C300C1EBCE272C6AE206 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +129,10 @@
 		602ABE0921FCB3E50070980A /* VK */ = {
 			isa = PBXGroup;
 			children = (
-				602ABE0A21FCB3E50070980A /* AppDelegate.swift */,
-				602ABE0C21FCB3E50070980A /* ViewController.swift */,
-				602ABE0E21FCB3E50070980A /* Main.storyboard */,
-				602ABE1121FCB3E60070980A /* Assets.xcassets */,
-				602ABE1321FCB3E60070980A /* LaunchScreen.storyboard */,
+				602ABE3821FCB3FE0070980A /* App */,
+				602ABE3921FCB40A0070980A /* Modules */,
+				602ABE3A21FCB40F0070980A /* Services */,
+				602ABE3B21FCB4180070980A /* Resources */,
 				602ABE1621FCB3E60070980A /* Info.plist */,
 			);
 			path = VK;
@@ -125,6 +156,111 @@
 			path = VKUITests;
 			sourceTree = "<group>";
 		};
+		602ABE3821FCB3FE0070980A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE0A21FCB3E50070980A /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		602ABE3921FCB40A0070980A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE3C21FCB4980070980A /* Authorization */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		602ABE3A21FCB40F0070980A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE5021FCC2030070980A /* AuthorizationService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		602ABE3B21FCB4180070980A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE1121FCB3E60070980A /* Assets.xcassets */,
+				602ABE1321FCB3E60070980A /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		602ABE3C21FCB4980070980A /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE3D21FCB5540070980A /* View */,
+				602ABE3E21FCB5580070980A /* Interactor */,
+				602ABE3F21FCB5700070980A /* Presenter */,
+				602ABE4021FCB5840070980A /* Entity */,
+				602ABE4121FCB5920070980A /* Router */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		602ABE3D21FCB5540070980A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE4A21FCB73E0070980A /* AuthorizationStoryboard.storyboard */,
+				602ABE4C21FCB7B10070980A /* AuthorizationViewProtocols.swift */,
+				608B51DD2204992300728026 /* AuthorizationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		602ABE3E21FCB5580070980A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE4221FCB6F60070980A /* AuthorizationInteractor.swift */,
+				602ABE4421FCB70B0070980A /* AuthorizationInteractorProtocols.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		602ABE3F21FCB5700070980A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE4621FCB71A0070980A /* AuthorizationPresenter.swift */,
+				602ABE4821FCB7260070980A /* AuthorizationPresenterProtocols.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		602ABE4021FCB5840070980A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		602ABE4121FCB5920070980A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		602ABE5021FCC2030070980A /* AuthorizationService */ = {
+			isa = PBXGroup;
+			children = (
+				602ABE4E21FCC1F40070980A /* AuthorizationService.swift */,
+				602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */,
+				602ABE5321FCC5330070980A /* AuthorizationData.swift */,
+			);
+			path = AuthorizationService;
+			sourceTree = "<group>";
+		};
+		C245C300C1EBCE272C6AE206 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C13C2FA0F42CF72B51889881 /* Pods_VK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +268,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 602ABE2F21FCB3E60070980A /* Build configuration list for PBXNativeTarget "VK" */;
 			buildPhases = (
+				D2DFBC87E8F2C6323CFE69A5 /* [CP] Check Pods Manifest.lock */,
 				602ABE0321FCB3E50070980A /* Sources */,
 				602ABE0421FCB3E50070980A /* Frameworks */,
 				602ABE0521FCB3E50070980A /* Resources */,
+				7A59E45E1D216D691A926621 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,9 +367,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602ABE4B21FCB73E0070980A /* AuthorizationStoryboard.storyboard in Resources */,
 				602ABE1521FCB3E60070980A /* LaunchScreen.storyboard in Resources */,
 				602ABE1221FCB3E60070980A /* Assets.xcassets in Resources */,
-				602ABE1021FCB3E50070980A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +389,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7A59E45E1D216D691A926621 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VK/Pods-VK-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VK/Pods-VK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2DFBC87E8F2C6323CFE69A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		602ABE0321FCB3E50070980A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602ABE0D21FCB3E50070980A /* ViewController.swift in Sources */,
+				602ABE4721FCB71A0070980A /* AuthorizationPresenter.swift in Sources */,
+				602ABE4F21FCC1F40070980A /* AuthorizationService.swift in Sources */,
+				602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */,
 				602ABE0B21FCB3E50070980A /* AppDelegate.swift in Sources */,
+				602ABE4521FCB70B0070980A /* AuthorizationInteractorProtocols.swift in Sources */,
+				602ABE5421FCC5330070980A /* AuthorizationData.swift in Sources */,
+				602ABE5221FCC22D0070980A /* AuthorizationServiceProtocols.swift in Sources */,
+				602ABE4D21FCB7B10070980A /* AuthorizationViewProtocols.swift in Sources */,
+				608B51DE2204992300728026 /* AuthorizationViewController.swift in Sources */,
+				602ABE4921FCB7260070980A /* AuthorizationPresenterProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +488,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		602ABE0E21FCB3E50070980A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				602ABE0F21FCB3E50070980A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		602ABE1321FCB3E60070980A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -430,6 +617,7 @@
 		};
 		602ABE3021FCB3E60070980A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8717FE620F043EA598D93843 /* Pods-VK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +636,7 @@
 		};
 		602ABE3121FCB3E60070980A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6DFED0D1FAA011687E4819F /* Pods-VK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
