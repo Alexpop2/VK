@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AuthorizationPresenterInput: class {
     var delegate: AuthorizationPresenterDelegate { get set }
@@ -16,4 +17,5 @@ protocol AuthorizationPresenterInput: class {
 
 protocol AuthorizationPresenterDelegate: class {
     func authorizationCompleted()
+    func vkSdkShouldPresent(controller: UIViewController)
 }

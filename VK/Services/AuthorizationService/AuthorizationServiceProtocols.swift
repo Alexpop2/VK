@@ -9,6 +9,8 @@
 import Foundation
 
 protocol AuthorizationServiceInput: class {
+    var output: AuthorizationServiceOutput { get set }
+    
     func authorize() //запустит vk sdk получит токен,
 }
 

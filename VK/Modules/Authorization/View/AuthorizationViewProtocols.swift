@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AuthorizationViewInput: class {
     var output: AuthorizationViewOutput { get set }
@@ -14,4 +15,6 @@ protocol AuthorizationViewInput: class {
 
 protocol AuthorizationViewOutput: class {
     func viewDidAppear()
+    func vkSdkShouldPresent(controller: UIViewController)
+    func authCompletedWith(token: String)
 }
