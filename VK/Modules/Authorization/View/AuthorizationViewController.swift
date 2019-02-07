@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class AuthorizationViewController: UIViewController {
 
+    private var viewOutput: AuthorizationViewOutput!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        output.viewDidAppear()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+}
 
-
+extension AuthorizationViewController: AuthorizationViewInput {
+    var output: AuthorizationViewOutput {
+        get {
+            return viewOutput
+        }
+        set {
+            viewOutput = newValue
+        }
+    }
+    
+    func showAuthScreen(data: AuthorizationData) {
+        present(data.authorizationViewController, animated: true)
+    }
 }

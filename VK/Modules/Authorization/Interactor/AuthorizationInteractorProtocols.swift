@@ -16,5 +16,9 @@ protocol AuthorizationInteractorInput: class {
 protocol AuthorizationInteractorOutput: class {
     func authorizationCompleted()
     func authorizationFailed(withError error: Error)
-    func exceptionRose(data: AuthorizationData)
+    func presentAuthorizationScreen(data: AuthorizationData)
+}
+
+protocol RoutingAuthorizationView: class {
+    func presentAuthorizationView()
 }
