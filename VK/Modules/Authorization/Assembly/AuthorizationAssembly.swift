@@ -17,7 +17,7 @@ class AuthorizationAssembly {
             return nil
         }
         
-        let authService = AuthorizationService(controller: authVC)
+        let authService = AuthorizationService()
         let presenter = AuthorizationPresenter()
         let interactor = AuthorizationInteractor()
         

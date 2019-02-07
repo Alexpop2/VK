@@ -26,10 +26,10 @@ class ModulesCoordinator {
     func rootModuleController() -> UIViewController {
         presentAuthorizationView()
         
-        self.navigationController = UINavigationController(rootViewController: viewControllers[0])
-        navigationController.navigationBar.prefersLargeTitles = true
+        //self.navigationController = UINavigationController(rootViewController: viewControllers[0])
+        //navigationController.navigationBar.prefersLargeTitles = true
         
-        return navigationController
+        return viewControllers[0]
     }
     
     private func removeFromPresenterArray<T>(_ : T.Type){

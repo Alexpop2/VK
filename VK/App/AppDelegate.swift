@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        VKSdk.forceLogout()
+        //VKSdk.forceLogout()
         window = UIWindow()
         let app = Application()
         window?.rootViewController = app.loadRootVC()

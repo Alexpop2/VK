@@ -16,10 +16,6 @@ class AuthorizationInteractor {
 }
 
 extension AuthorizationInteractor: AuthorizationInteractorInput {
-    func recieved(token: String) {
-        database.deleteToken()
-        database.add(token: token)
-    }
     
     var output: AuthorizationInteractorOutput {
         get {
@@ -37,6 +33,12 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
 }
 
 extension AuthorizationInteractor: AuthorizationServiceOutput {
+    
+    func recieved(token: String) {
+        database.deleteToken()
+        database.add(token: token)
+    }
+    
     func authorizationCompleted() {
         interactorOutput.authorizationCompleted()
     }
@@ -45,7 +47,7 @@ extension AuthorizationInteractor: AuthorizationServiceOutput {
         interactorOutput.authorizationFailed(withError: error)
     }
     
-    func exceptionRose(data: AuthorizationData) {
-        interactorOutput.exceptionRose(data: data)
+    func presentAuthorizationScreen(data: AuthorizationData) {
+        interactorOutput.presentAuthorizationScreen(data: data)
     }
 }

@@ -35,26 +35,7 @@ extension AuthorizationViewController: AuthorizationViewInput {
         }
     }
     
-    
-}
-
-extension AuthorizationViewController: VKSdkDelegate {
-    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        guard let token = result.token.accessToken else { return }
-        output.authCompletedWith(token: token)
-    }
-    
-    func vkSdkUserAuthorizationFailed() {
-        print("controller auth failed")
-    }
-}
-
-extension AuthorizationViewController: VKSdkUIDelegate {
-    func vkSdkShouldPresent(_ controller: UIViewController!) {
-        output.vkSdkShouldPresent(controller: controller)
-    }
-    
-    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
-        print("captcha error")
+    func showAuthScreen(data: AuthorizationData) {
+        present(data.authorizationViewController, animated: true)
     }
 }

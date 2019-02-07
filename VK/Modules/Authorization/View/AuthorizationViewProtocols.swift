@@ -11,10 +11,10 @@ import UIKit
 
 protocol AuthorizationViewInput: class {
     var output: AuthorizationViewOutput { get set }
+    
+    func showAuthScreen(data: AuthorizationData)
 }
 
 protocol AuthorizationViewOutput: class {
     func viewDidAppear()
-    func vkSdkShouldPresent(controller: UIViewController)
-    func authCompletedWith(token: String)
 }

@@ -9,15 +9,16 @@
 import Foundation
 import VK_ios_sdk
 
-class AuthorizationService {
+class AuthorizationService: NSObject {
     private var authServiceOutput: AuthorizationServiceOutput!
     private var data: AuthorizationData?
     private var sdkInstance: VKSdk?
     
-    init(controller: AuthorizationViewController) {
+    override init() {
+        super.init()
         sdkInstance = VKSdk.initialize(withAppId: "6842964")
-        sdkInstance?.register(controller)
-        sdkInstance?.uiDelegate = controller
+        sdkInstance?.register(self)
+        sdkInstance?.uiDelegate = self
     }
 }
 
@@ -32,7 +33,7 @@ extension AuthorizationService: AuthorizationServiceInput {
     }
     
     func authorize() {
-        let permissions = ["friends", "email"]
+        let permissions = ["friends", "email", "photos"] // было friend, email, photo
         
         VKSdk.wakeUpSession(permissions) { (state, error) in
             if (state == VKAuthorizationState.authorized) {
@@ -43,5 +44,26 @@ extension AuthorizationService: AuthorizationServiceInput {
                 self.output.authorizationFailed(withError: error!)
             }
         }
+    }
+}
+
+extension AuthorizationService: VKSdkDelegate {
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+        guard let token = result.token.accessToken else { return }
+        output.recieved(token: token)
+    }
+    
+    func vkSdkUserAuthorizationFailed() {
+        print("controller auth failed")
+    }
+}
+
+extension AuthorizationService: VKSdkUIDelegate {
+    func vkSdkShouldPresent(_ controller: UIViewController!) {
+        output.presentAuthorizationScreen(data: AuthorizationData(authorizationViewController: controller))
+    }
+    
+    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        print("captcha error")
     }
 }

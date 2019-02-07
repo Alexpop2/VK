@@ -53,20 +53,12 @@ extension AuthorizationPresenter: AuthorizationInteractorOutput {
         print(error)
     }
     
-    func exceptionRose(data: AuthorizationData) {
-        // TODO: - Safari Auth
+    func presentAuthorizationScreen(data: AuthorizationData) {
+        view.showAuthScreen(data: data)
     }
 }
 
 extension AuthorizationPresenter: AuthorizationViewOutput {
-    func authCompletedWith(token: String) {
-        interactor.recieved(token: token)
-    }
-    
-    func vkSdkShouldPresent(controller: UIViewController) {
-        delegate.vkSdkShouldPresent(controller: controller)
-    }
-    
     func viewDidAppear() {
         interactor.authorize()
     }
