@@ -1,26 +1,24 @@
 PODS:
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
-  - RealmSwift (3.13.1):
-    - Realm (= 3.13.1)
+  - KeychainAccess (3.1.2)
+  - Swinject (2.5.0)
   - VK-ios-sdk (1.4.6)
 
 DEPENDENCIES:
-  - RealmSwift
+  - KeychainAccess
+  - Swinject
   - VK-ios-sdk
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Realm
-    - RealmSwift
+    - KeychainAccess
+    - Swinject
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
 
-PODFILE CHECKSUM: db926336b97a1b0e42e4f962ee4cbc19fc693db6
+PODFILE CHECKSUM: 572775b952fd7df855c7300348a23423b27627ae
 
 COCOAPODS: 1.5.3

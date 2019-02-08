@@ -9,81 +9,43 @@
 import Foundation
 import UIKit
 import VK_ios_sdk
+import Swinject
+
+enum Modules: String {
+    case auth = "Authorization"
+    case news = "News"
+}
 
 class ModulesCoordinator {
     
-    private var navigationController: UINavigationController!
-    //private var tabBarController: UITabBarController
+    private var modulesManager: ModulesManagerProtocol
     
-    lazy private var controllerPackageBuilder: ControllerPackageBuilderProtocol = ControllerPackageBuilder(modulesCoordinator: self)
-    private var presenterArray : [MainPresenter] = []
-    private var viewControllers : [UIViewController] = []
+    weak var delegate: ApplicationDelegate!
     
     init() {
-        //self.tabBarController = UITabBarController()
+        let modulesManager = ModulesManager()
+        modulesManager.registerModules()
+        self.modulesManager = modulesManager
+        modulesManager.modulesCoordinator = self
     }
     
     func rootModuleController() -> UIViewController {
-        presentAuthorizationView()
-        
-        //self.navigationController = UINavigationController(rootViewController: viewControllers[0])
-        //navigationController.navigationBar.prefersLargeTitles = true
-        
-        return viewControllers[0]
-    }
-    
-    private func removeFromPresenterArray<T>(_ : T.Type){
-        for i in 0..<presenterArray.count {
-            guard presenterArray[i] is (T) else {continue}
-            presenterArray.remove(at: i)
-        }
-    }
-    
-    private func findPresenter<T>(_: T.Type) -> (T?){
-        var presenter:(T)?
-        for i in 0..<presenterArray.count {
-            guard let find = presenterArray[i] as? (T) else { continue}
-            presenter = find
-        }
-        return presenter
-    }
-    
-    private func findViewController<T>(_: T.Type) -> (T?){
-        var controller:(T)?
-        for i in 0..<viewControllers.count {
-            guard let find = viewControllers[i] as? (T) else { continue}
-            controller = find
-        }
-        return controller
-    }
-    
-    private func presentController(type: ViewControllers, push: Bool){
-        guard let controllerPackage = controllerPackageBuilder.createPackage(type: type) else {return}
-        presenterArray.append(controllerPackage.presenter)
-        viewControllers.append(controllerPackage.controller)
-        if(push) {
-            navigationController.pushViewController(controllerPackage.controller, animated: true)
-        }
-    }
-    
-    private func presentController(controller: UIViewController) {
-        navigationController.pushViewController(controller, animated: true)
+        guard let authPackage = modulesManager.get(module: .auth) else { return UIViewController() }
+        return authPackage.controller
     }
     
 }
 
 extension ModulesCoordinator: AuthorizationPresenterDelegate {
-    func vkSdkShouldPresent(controller: UIViewController) {
-        presentController(controller: controller)
-    }
     
     func authorizationCompleted() {
+        guard let newsPackage = modulesManager.get(module: .news) else { return }
+        delegate.present(controller: newsPackage.controller)
         print("coordinator: auth completed")
     }
+    
 }
 
-extension ModulesCoordinator: RoutingAuthorizationView {
-    func presentAuthorizationView() {
-        presentController(type: .authorization, push: false)
-    }
+extension ModulesCoordinator: NewsPresenterDelegate {
+    
 }

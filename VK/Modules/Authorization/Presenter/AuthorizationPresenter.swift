@@ -64,4 +64,4 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
     }
 }
 
-extension AuthorizationPresenter: MainPresenter {}
+extension AuthorizationPresenter: Presentable {}

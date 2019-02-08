@@ -1,0 +1,29 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+class {{ prefix }}{{ module_info.name }}Assembly {
+    func build() -> (controller: UIViewController, presenter: {{ prefix }}{{ module_info.name }}Presenter)? {
+        let storyboard = UIStoryboard(name: "{{ prefix }}{{ module_info.name }}Storyboard", bundle: nil)
+        let rootVC = storyboard.instantiateViewController(withIdentifier: "{{ prefix }}{{ module_info.name }}ViewControllerIdentifier")
+        guard let moduleVC = rootVC as? {{ prefix }}{{ module_info.name }}ViewController else {
+            return nil
+        }
+        
+        let presenter = {{ prefix }}{{ module_info.name }}Presenter()
+        let interactor = {{ prefix }}{{ module_info.name }}Interactor()
+        
+        moduleVC.output = presenter
+        presenter.interactor = interactor
+        presenter.view = moduleVC
+        interactor.output = presenter
+        
+        return(controller: moduleVC, presenter: presenter)
+    }
+}

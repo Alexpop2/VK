@@ -17,5 +17,4 @@ protocol AuthorizationPresenterInput: class {
 
 protocol AuthorizationPresenterDelegate: class {
     func authorizationCompleted()
-    func vkSdkShouldPresent(controller: UIViewController)
 }
