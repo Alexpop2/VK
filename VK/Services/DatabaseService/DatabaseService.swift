@@ -7,30 +7,20 @@
 //
 
 import Foundation
-import RealmSwift
+import KeychainAccess
 
 class DatabaseService: DatabaseServiceInput {
+    let keychain = Keychain(service: "com.vk-token")
+    
     func loadToken() -> String? {
-        let realm = try! Realm()
-        let postEntities = realm.objects(PostEntity.self)
-        var postEntitiesArray = [PostEntity]()
-        for entity in postEntities { //map
-            postEntitiesArray.append(entity)
-        }
-        return postEntitiesArray[0].token
+        return keychain["vk-token"]
     }
     
     func add(token: String) {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.create(PostEntity.self, value: [token])
-        }
+        keychain["vk-token"] = token
     }
     
     func deleteToken() {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
+        keychain["vk-token"] = nil
     }
 }

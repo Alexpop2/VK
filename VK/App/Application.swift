@@ -8,17 +8,27 @@
 
 import Foundation
 import UIKit
+import Swinject
 
 class Application {
     private let modulesCoordinator: ModulesCoordinator
     
+    weak var delegate: AppDelegateOutput!
+    
     init() {
         modulesCoordinator = ModulesCoordinator()
+        modulesCoordinator.delegate = self
     }
 }
 
 extension Application {
     func loadRootVC() -> UIViewController {
         return modulesCoordinator.rootModuleController()
+    }
+}
+
+extension Application: ApplicationDelegate {
+    func present(controller: UIViewController?) {
+        delegate.present(controller: controller)
     }
 }

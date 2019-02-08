@@ -1,7 +1,8 @@
 
 target 'VK' do
-  pod 'RealmSwift'
   pod 'VK-ios-sdk'
+  pod 'Swinject'
+  pod 'KeychainAccess'
   use_frameworks!
 
 end

@@ -1,0 +1,23 @@
+# Template information section
+name: viper_beetlab_v2
+summary: iOS VIPER
+author: Alexey Poponin
+version: 2.0.0
+license: MIT
+
+# The declarations for code files
+code_files:
+- {name: Assembly/Assembly.swift, path: Code/Assembly/assembly.swift.liquid}
+- {name: Interactor/Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+- {name: Interactor/InteractorProtocols.swift, path: Code/Interactor/interactor_protocols.swift.liquid}
+- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+- {name: Presenter/PresenterProtocols.swift, path: Code/Presenter/presenter_protocols.swift.liquid}
+- {name: Router/Router.swift, path: Code/Router/router.swift.liquid}
+- {name: View/Protocols/ViewProtocols.swift, path: Code/View/Protocols/view_protocols.swift.liquid}
+- {name: View/ViewController/ViewController.swift, path: Code/View/ViewController/view_controller.swift.liquid}
+
+# The declarations for test files
+test_files:
+
+# Template dependencies
+dependencies:

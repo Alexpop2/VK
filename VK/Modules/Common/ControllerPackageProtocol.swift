@@ -11,5 +11,5 @@ import UIKit
 
 protocol ControllerPackageProtocol: class{
     var controller: UIViewController {get set}
-    var presenter: MainPresenter {get set}
+    var presenter: Presentable {get set}
 }

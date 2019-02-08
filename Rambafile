@@ -1,0 +1,35 @@
+### Headers settings
+company: Aleksei Poponin
+
+### Xcode project settings
+project_name: VK
+xcodeproj_path: VK.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: VK
+
+# The file path for new modules
+project_file_path: VK/Modules
+
+# The Xcode group path to new modules
+project_group_path: VK/Modules
+
+### Tests generation settings section
+# The tests target name
+test_target: VKTests
+
+# The file path for new tests
+test_file_path: VKTests
+
+# The Xcode group path to new tests
+test_group_path: VKTests
+
+### Dependencies settings section
+podfile_path: Podfile
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}

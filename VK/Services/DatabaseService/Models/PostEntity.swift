@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
 
-class PostEntity: Object {
+class PostEntity {
     @objc dynamic var token: String!
 }

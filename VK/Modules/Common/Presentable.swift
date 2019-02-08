@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol MainPresenter {}
+protocol Presentable {}

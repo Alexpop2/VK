@@ -11,9 +11,9 @@ import UIKit
 
 class ControllerPackage : ControllerPackageProtocol{
     var controller: UIViewController
-    var presenter: MainPresenter
+    var presenter: Presentable
     
-    init(controller:UIViewController, presenter: MainPresenter){
+    init(controller:UIViewController, presenter: Presentable){
         self.controller = controller
         self.presenter = presenter
     }

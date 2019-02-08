@@ -3,17 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144893662FF22160F150BE4A /* NewsInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F451AB4369F5213AC62B328 /* NewsInteractorProtocols.swift */; };
+		3D42E2C4D0E21C3A1CED7DA9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5EE56E3FF0E5AA9B034F55 /* NewsViewController.swift */; };
+		558601B2970D9283962107EA /* NewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC5662E696881E3FEEE177 /* NewsInteractor.swift */; };
 		600302EF2204A09300EC014C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302EE2204A09300EC014C /* Application.swift */; };
 		600302F22204A0D700EC014C /* ModulesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302F12204A0D700EC014C /* ModulesCoordinator.swift */; };
 		600302F52204B04500EC014C /* ControllerPackageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302F42204B04500EC014C /* ControllerPackageBuilder.swift */; };
 		600302F72204B06400EC014C /* ControllerPackageBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302F62204B06400EC014C /* ControllerPackageBuilderProtocol.swift */; };
 		600302F92204B07E00EC014C /* ControllerPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302F82204B07E00EC014C /* ControllerPackage.swift */; };
 		600302FB2204B09600EC014C /* ControllerPackageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302FA2204B09600EC014C /* ControllerPackageProtocol.swift */; };
-		600302FE2204B0C600EC014C /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302FD2204B0C600EC014C /* MainPresenter.swift */; };
+		600302FE2204B0C600EC014C /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600302FD2204B0C600EC014C /* Presentable.swift */; };
 		600303022204BD8000EC014C /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600303012204BD8000EC014C /* PostEntity.swift */; };
 		600303042204BDC400EC014C /* DatabaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600303032204BDC400EC014C /* DatabaseProtocols.swift */; };
 		600303062204BDE800EC014C /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600303052204BDE800EC014C /* DatabaseService.swift */; };
@@ -33,8 +36,17 @@
 		602ABE5221FCC22D0070980A /* AuthorizationServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */; };
 		602ABE5421FCC5330070980A /* AuthorizationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5321FCC5330070980A /* AuthorizationData.swift */; };
 		6060EC592205F2D700C4193B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EC582205F2D700C4193B /* Test.swift */; };
+		606CF546220CD44900D70A3F /* ApplicationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606CF545220CD44900D70A3F /* ApplicationProtocols.swift */; };
+		606CF548220DB45500D70A3F /* ModulesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606CF547220DB45500D70A3F /* ModulesManager.swift */; };
+		606CF54A220DB5E500D70A3F /* ModulesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606CF549220DB5E500D70A3F /* ModulesManagerProtocol.swift */; };
+		606CF54C220DF06F00D70A3F /* NewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */; };
 		608B51DE2204992300728026 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608B51DD2204992300728026 /* AuthorizationViewController.swift */; };
+		614C0C7C7E56B6F31925C27E /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD444277C02AEF5D3D30048D /* NewsRouter.swift */; };
+		853A8312BF0A08F0AACDBD45 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D3E8A5072FC1DBFE99F39 /* NewsPresenter.swift */; };
 		974E61F11059091E75F45E1F /* Pods_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C2FA0F42CF72B51889881 /* Pods_VK.framework */; };
+		AAA80B01EE286D0CEC71086C /* NewsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4700AD7DA56E2BA91FEA5CA1 /* NewsPresenterProtocols.swift */; };
+		ADC5FCDB7719AAE8C88AD225 /* NewsViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F711BC40849EE1919EB413C /* NewsViewProtocols.swift */; };
+		E72A668FFCEDC0859FC1EAC8 /* NewsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DD0E2789004E814D3D8EC /* NewsAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +67,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211DD0E2789004E814D3D8EC /* NewsAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsAssembly.swift; sourceTree = "<group>"; };
+		3F711BC40849EE1919EB413C /* NewsViewProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsViewProtocols.swift; sourceTree = "<group>"; };
+		4700AD7DA56E2BA91FEA5CA1 /* NewsPresenterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsPresenterProtocols.swift; sourceTree = "<group>"; };
 		600302EE2204A09300EC014C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		600302F12204A0D700EC014C /* ModulesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesCoordinator.swift; sourceTree = "<group>"; };
 		600302F42204B04500EC014C /* ControllerPackageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPackageBuilder.swift; sourceTree = "<group>"; };
 		600302F62204B06400EC014C /* ControllerPackageBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPackageBuilderProtocol.swift; sourceTree = "<group>"; };
 		600302F82204B07E00EC014C /* ControllerPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPackage.swift; sourceTree = "<group>"; };
 		600302FA2204B09600EC014C /* ControllerPackageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerPackageProtocol.swift; sourceTree = "<group>"; };
-		600302FD2204B0C600EC014C /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		600302FD2204B0C600EC014C /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		600303012204BD8000EC014C /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		600303032204BDC400EC014C /* DatabaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocols.swift; sourceTree = "<group>"; };
 		600303052204BDE800EC014C /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -87,10 +102,19 @@
 		603CE6B12204ECB600414FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		603CE6B32204ECC300414FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6060EC582205F2D700C4193B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		606CF545220CD44900D70A3F /* ApplicationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationProtocols.swift; sourceTree = "<group>"; };
+		606CF547220DB45500D70A3F /* ModulesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesManager.swift; sourceTree = "<group>"; };
+		606CF549220DB5E500D70A3F /* ModulesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesManagerProtocol.swift; sourceTree = "<group>"; };
+		606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsStoryboard.storyboard; sourceTree = "<group>"; };
 		608B51DD2204992300728026 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		6F451AB4369F5213AC62B328 /* NewsInteractorProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsInteractorProtocols.swift; sourceTree = "<group>"; };
+		77FC5662E696881E3FEEE177 /* NewsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsInteractor.swift; sourceTree = "<group>"; };
 		8717FE620F043EA598D93843 /* Pods-VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VK/Pods-VK.debug.xcconfig"; sourceTree = "<group>"; };
+		9C5EE56E3FF0E5AA9B034F55 /* NewsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		C13C2FA0F42CF72B51889881 /* Pods_VK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DFED0D1FAA011687E4819F /* Pods-VK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.release.xcconfig"; path = "Pods/Target Support Files/Pods-VK/Pods-VK.release.xcconfig"; sourceTree = "<group>"; };
+		CD444277C02AEF5D3D30048D /* NewsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
+		FB1D3E8A5072FC1DBFE99F39 /* NewsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D5E803A95DC1217417AAE47 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				77FC5662E696881E3FEEE177 /* NewsInteractor.swift */,
+				6F451AB4369F5213AC62B328 /* NewsInteractorProtocols.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		4557F2A9BEC7820CB31A3E1C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				600302F12204A0D700EC014C /* ModulesCoordinator.swift */,
+				606CF547220DB45500D70A3F /* ModulesManager.swift */,
+				606CF549220DB5E500D70A3F /* ModulesManagerProtocol.swift */,
 			);
 			path = ModulesCoordinator;
 			sourceTree = "<group>";
@@ -141,8 +176,6 @@
 			children = (
 				600302F42204B04500EC014C /* ControllerPackageBuilder.swift */,
 				600302F62204B06400EC014C /* ControllerPackageBuilderProtocol.swift */,
-				600302F82204B07E00EC014C /* ControllerPackage.swift */,
-				600302FA2204B09600EC014C /* ControllerPackageProtocol.swift */,
 			);
 			path = ControllerPackageBuilder;
 			sourceTree = "<group>";
@@ -150,7 +183,9 @@
 		600302FC2204B0AF00EC014C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				600302FD2204B0C600EC014C /* MainPresenter.swift */,
+				600302FD2204B0C600EC014C /* Presentable.swift */,
+				600302F82204B07E00EC014C /* ControllerPackage.swift */,
+				600302FA2204B09600EC014C /* ControllerPackageProtocol.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -238,6 +273,7 @@
 			children = (
 				602ABE0A21FCB3E50070980A /* AppDelegate.swift */,
 				600302EE2204A09300EC014C /* Application.swift */,
+				606CF545220CD44900D70A3F /* ApplicationProtocols.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -248,6 +284,7 @@
 				600302FC2204B0AF00EC014C /* Common */,
 				600302F02204A0CB00EC014C /* ModulesCoordinator */,
 				602ABE3C21FCB4980070980A /* Authorization */,
+				A2247653E329B194B7D7AF54 /* News */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -337,12 +374,75 @@
 			path = AuthorizationService;
 			sourceTree = "<group>";
 		};
+		6408EDE794D4648AD279333E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CD444277C02AEF5D3D30048D /* NewsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6C3A9E978A44A0D9A9DE1B5F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FB1D3E8A5072FC1DBFE99F39 /* NewsPresenter.swift */,
+				4700AD7DA56E2BA91FEA5CA1 /* NewsPresenterProtocols.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		858F2A468743BC16593C495C /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				211DD0E2789004E814D3D8EC /* NewsAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		A2247653E329B194B7D7AF54 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				858F2A468743BC16593C495C /* Assembly */,
+				3D5E803A95DC1217417AAE47 /* Interactor */,
+				6C3A9E978A44A0D9A9DE1B5F /* Presenter */,
+				6408EDE794D4648AD279333E /* Router */,
+				F632348173107BE3B14578BA /* View */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		C245C300C1EBCE272C6AE206 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				C13C2FA0F42CF72B51889881 /* Pods_VK.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1AAA85EA8D284C30CEFDF02 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3F711BC40849EE1919EB413C /* NewsViewProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E092A398420517B2BFB66E37 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9C5EE56E3FF0E5AA9B034F55 /* NewsViewController.swift */,
+				606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F632348173107BE3B14578BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1AAA85EA8D284C30CEFDF02 /* Protocols */,
+				E092A398420517B2BFB66E37 /* ViewController */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,19 +515,22 @@
 				TargetAttributes = {
 					602ABE0621FCB3E50070980A = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					602ABE1A21FCB3E60070980A = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 602ABE0621FCB3E50070980A;
 					};
 					602ABE2521FCB3E60070980A = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 602ABE0621FCB3E50070980A;
 					};
 				};
 			};
 			buildConfigurationList = 602ABE0221FCB3E40070980A /* Build configuration list for PBXProject "VK" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -453,6 +556,7 @@
 			files = (
 				602ABE4B21FCB73E0070980A /* AuthorizationStoryboard.storyboard in Resources */,
 				602ABE1521FCB3E60070980A /* LaunchScreen.storyboard in Resources */,
+				606CF54C220DF06F00D70A3F /* NewsStoryboard.storyboard in Resources */,
 				602ABE1221FCB3E60070980A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,20 +583,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VK/Pods-VK-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/VK-ios-sdk/VK_ios_sdk.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VK_ios_sdk.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,15 +605,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-VK-checkManifestLockResult.txt",
 			);
@@ -532,7 +628,8 @@
 				600302F72204B06400EC014C /* ControllerPackageBuilderProtocol.swift in Sources */,
 				602ABE4721FCB71A0070980A /* AuthorizationPresenter.swift in Sources */,
 				600303042204BDC400EC014C /* DatabaseProtocols.swift in Sources */,
-				600302FE2204B0C600EC014C /* MainPresenter.swift in Sources */,
+				606CF548220DB45500D70A3F /* ModulesManager.swift in Sources */,
+				600302FE2204B0C600EC014C /* Presentable.swift in Sources */,
 				602ABE4F21FCC1F40070980A /* AuthorizationService.swift in Sources */,
 				6060EC592205F2D700C4193B /* Test.swift in Sources */,
 				600302F92204B07E00EC014C /* ControllerPackage.swift in Sources */,
@@ -542,15 +639,25 @@
 				602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */,
 				602ABE0B21FCB3E50070980A /* AppDelegate.swift in Sources */,
 				602ABE4521FCB70B0070980A /* AuthorizationInteractorProtocols.swift in Sources */,
+				606CF54A220DB5E500D70A3F /* ModulesManagerProtocol.swift in Sources */,
 				600303092204C00200EC014C /* AuthorizationAssembly.swift in Sources */,
 				602ABE5421FCC5330070980A /* AuthorizationData.swift in Sources */,
 				602ABE5221FCC22D0070980A /* AuthorizationServiceProtocols.swift in Sources */,
+				606CF546220CD44900D70A3F /* ApplicationProtocols.swift in Sources */,
 				600302F22204A0D700EC014C /* ModulesCoordinator.swift in Sources */,
 				600302FB2204B09600EC014C /* ControllerPackageProtocol.swift in Sources */,
 				602ABE4D21FCB7B10070980A /* AuthorizationViewProtocols.swift in Sources */,
 				608B51DE2204992300728026 /* AuthorizationViewController.swift in Sources */,
 				600303022204BD8000EC014C /* PostEntity.swift in Sources */,
 				602ABE4921FCB7260070980A /* AuthorizationPresenterProtocols.swift in Sources */,
+				E72A668FFCEDC0859FC1EAC8 /* NewsAssembly.swift in Sources */,
+				558601B2970D9283962107EA /* NewsInteractor.swift in Sources */,
+				144893662FF22160F150BE4A /* NewsInteractorProtocols.swift in Sources */,
+				853A8312BF0A08F0AACDBD45 /* NewsPresenter.swift in Sources */,
+				AAA80B01EE286D0CEC71086C /* NewsPresenterProtocols.swift in Sources */,
+				614C0C7C7E56B6F31925C27E /* NewsRouter.swift in Sources */,
+				ADC5FCDB7719AAE8C88AD225 /* NewsViewProtocols.swift in Sources */,
+				3D42E2C4D0E21C3A1CED7DA9 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,8 +816,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_MODULE_NAME = VK;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -723,10 +829,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VK/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VK-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -742,10 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VK/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VK-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -761,11 +861,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VKTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -782,11 +878,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VKTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VKTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -802,11 +894,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VKUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VKUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -822,11 +910,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
 				INFOPLIST_FILE = VKUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.VKUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
