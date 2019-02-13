@@ -10,8 +10,10 @@ import Foundation
 
 protocol NewsViewInput: class {
     var output: NewsViewOutput { get set }
+    
+    func display(newsItems: [NewsItem])
 }
 
 protocol NewsViewOutput: class {
-    
+    func viewDidLoad()
 }

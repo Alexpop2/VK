@@ -9,7 +9,8 @@
 import UIKit
 
 class NewsAssembly {
-    func build() -> (controller: UIViewController, presenter: NewsPresenter)? {
+    func build(database: DatabaseServiceInput,
+               internetService: InternetServiceInput) -> (controller: UIViewController, presenter: NewsPresenter)? {
         let storyboard = UIStoryboard(name: "NewsStoryboard", bundle: nil)
         let rootVC = storyboard.instantiateViewController(withIdentifier: "NewsViewControllerIdentifier")
         guard let moduleVC = rootVC as? NewsViewController else {
@@ -23,6 +24,9 @@ class NewsAssembly {
         presenter.interactor = interactor
         presenter.view = moduleVC
         interactor.output = presenter
+        
+        interactor.database = database
+        interactor.internetService = internetService
         
         return(controller: moduleVC, presenter: presenter)
     }

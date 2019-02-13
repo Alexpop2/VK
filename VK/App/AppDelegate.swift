@@ -9,6 +9,7 @@
 import UIKit
 import VK_ios_sdk
 import Swinject
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,9 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var app: Application?
     
+    //Манагера сюда перенести
+    
+    //список ассамблей в массиве Assembly
+    
+    //конфигуратор 
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //VKSdk.forceLogout()
+        VKSdk.forceLogout()
+        
         window = UIWindow()
         let app = Application()
         app.delegate = self
