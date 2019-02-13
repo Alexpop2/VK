@@ -33,7 +33,7 @@ extension AuthorizationService: AuthorizationServiceInput {
     }
     
     func authorize() {
-        let permissions = ["friends", "email", "photos"] // было friend, email, photo
+        let permissions = ["friends", "email", "photos", "wall"] // было friend, email, photo
         
         VKSdk.wakeUpSession(permissions) { (state, error) in
             if (state == VKAuthorizationState.authorized) {
@@ -54,6 +54,8 @@ extension AuthorizationService: VKSdkDelegate {
     }
     
     func vkSdkUserAuthorizationFailed() {
+        // TODO: realise
+        
         print("controller auth failed")
     }
 }

@@ -10,7 +10,13 @@ import Foundation
 
 protocol NewsInteractorInput: class {
     var output: NewsInteractorOutput { get set }
+    
+    func loadToken()
+    func getNews()
 }
 
 protocol NewsInteractorOutput: class {
+    func authorizationRequired()
+    
+    func setDataSource(parsedInput: [NewsItem]) 
 }

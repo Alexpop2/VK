@@ -9,14 +9,14 @@
 import Foundation
 import KeychainAccess
 
-class DatabaseService: DatabaseServiceInput {
-    let keychain = Keychain(service: "com.vk-token")
+class DatabaseService: DatabaseServiceInput { //KeyValueStorage
+    private let keychain = Keychain()
     
     func loadToken() -> String? {
         return keychain["vk-token"]
     }
     
-    func add(token: String) {
+    func add(token: String) { //называть не token а addValueForKey и т.п.
         keychain["vk-token"] = token
     }
     

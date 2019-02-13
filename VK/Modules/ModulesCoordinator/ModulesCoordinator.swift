@@ -16,9 +16,11 @@ enum Modules: String {
     case news = "News"
 }
 
+//данные нужно кидать через ассамблеи через умный енум
+
 class ModulesCoordinator {
     
-    private var modulesManager: ModulesManagerProtocol
+    private var modulesManager: ModulesManagerProtocol // протокол пиздец
     
     weak var delegate: ApplicationDelegate!
     
@@ -41,11 +43,16 @@ extension ModulesCoordinator: AuthorizationPresenterDelegate {
     func authorizationCompleted() {
         guard let newsPackage = modulesManager.get(module: .news) else { return }
         delegate.present(controller: newsPackage.controller)
-        print("coordinator: auth completed")
     }
     
 }
 
 extension ModulesCoordinator: NewsPresenterDelegate {
+    func authorizationRequired() {
+        VKSdk.forceLogout()
+        guard let authPackage = modulesManager.get(module: .auth) else { return }
+        delegate.present(controller: authPackage.controller)
+    }
+    
     
 }

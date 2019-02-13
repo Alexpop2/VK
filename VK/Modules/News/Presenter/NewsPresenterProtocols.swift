@@ -15,4 +15,5 @@ protocol NewsPresenterInput: class {
 }
 
 protocol NewsPresenterDelegate: class {
+    func authorizationRequired()
 }

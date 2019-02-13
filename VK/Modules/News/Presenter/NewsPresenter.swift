@@ -46,11 +46,20 @@ extension NewsPresenter: NewsPresenterInput {
 }
 
 extension NewsPresenter: NewsInteractorOutput {
-
+    func setDataSource(parsedInput: [NewsItem]) {
+        moduleView.display(newsItems: parsedInput)
+    }
+    
+    func authorizationRequired() {
+        delegate.authorizationRequired()
+    }
 }
 
 extension NewsPresenter: NewsViewOutput {
-    
+    func viewDidLoad() {
+        interactor.loadToken()
+        interactor.getNews()
+    }
 }
 
 extension NewsPresenter: Presentable {}
