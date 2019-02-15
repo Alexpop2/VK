@@ -63,5 +63,3 @@ extension AuthorizationPresenter: AuthorizationViewOutput {
         interactor.authorize()
     }
 }
-
-extension AuthorizationPresenter: Presentable {}

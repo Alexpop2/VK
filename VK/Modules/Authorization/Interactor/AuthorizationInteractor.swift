@@ -11,8 +11,9 @@ import Foundation
 class AuthorizationInteractor {
     private var interactorOutput: AuthorizationInteractorOutput!
     
-    var database: DatabaseServiceInput!
-    var authService: AuthorizationService!
+    var keyValueStorage: KeyValueStorageInput!
+    var authService: AuthorizationServiceInput!
+    
 }
 
 extension AuthorizationInteractor: AuthorizationInteractorInput {
@@ -35,8 +36,8 @@ extension AuthorizationInteractor: AuthorizationInteractorInput {
 extension AuthorizationInteractor: AuthorizationServiceOutput {
     
     func recieved(token: String) {
-        database.deleteToken()
-        database.add(token: token)
+        keyValueStorage.deleteValue(byKey: "vk-token")
+        keyValueStorage.addValue(forKey: "vk-token", data: token)
     }
     
     func authorizationCompleted() {

@@ -61,5 +61,3 @@ extension NewsPresenter: NewsViewOutput {
         interactor.getNews()
     }
 }
-
-extension NewsPresenter: Presentable {}
