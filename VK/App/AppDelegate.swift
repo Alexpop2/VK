@@ -15,9 +15,8 @@ import KeychainAccess
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var app: Application?
     
-    //Манагера сюда перенести
+    var launchManager = ApplicationAssembly.resolver.resolve(LaunchManager.self)!
     
     //список ассамблей в массиве Assembly
     
@@ -27,23 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         VKSdk.forceLogout()
         
-        window = UIWindow()
-        let app = Application()
-        app.delegate = self
-        window?.rootViewController = app.loadRootVC()
-        window?.makeKeyAndVisible()
-        self.app = app
+        window = launchManager.generateWindow()
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
         return true
-    }
-}
-
-extension AppDelegate: AppDelegateOutput {
-    func present(controller: UIViewController?) {
-        window?.rootViewController = controller
     }
 }

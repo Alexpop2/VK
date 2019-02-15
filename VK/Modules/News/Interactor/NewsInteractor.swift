@@ -11,7 +11,7 @@ import Foundation
 class NewsInteractor {
     private var interactorOutput: NewsInteractorOutput!
     
-    var database: DatabaseServiceInput!
+    var keyValueStorage: KeyValueStorageInput!
     var internetService: InternetServiceInput!
     
     var token: String = ""
@@ -20,11 +20,13 @@ class NewsInteractor {
 extension NewsInteractor: NewsInteractorInput {
     
     func loadToken() {
-        guard let token = database.loadToken() else {
-            interactorOutput.authorizationRequired()
-            return
+        keyValueStorage.loadValue(byKey: "vk-token") { (data) in
+            guard let token = data else {
+                interactorOutput.authorizationRequired()
+                return
+            }
+            self.token = token
         }
-        self.token = token
     }
     
     func getNews() {
