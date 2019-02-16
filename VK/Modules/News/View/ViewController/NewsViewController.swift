@@ -28,6 +28,9 @@ class NewsViewController: UITableViewController {
     private let newsWallPhotoTableViewCellNib = UINib(nibName: "NewsWallPhotoTableViewCell", bundle: nil)
     private let newsWallPhotoReusableCellIdentifier = "NewsWallPhotoCellReusableIdentifier"
     
+    private let newsVideoTableViewCellNib = UINib(nibName: "NewsVideoTableViewCell", bundle: nil)
+    private let newsVideoReusableCellIdentifier = "NewsVideoCellReusableIdentifier"
+    
     private var dataSource = [NewsItem]()
     
     override func viewDidLoad() {
@@ -56,6 +59,7 @@ extension NewsViewController {
         tableView.register(newsTextTableViewCellNib, forCellReuseIdentifier: newsTextReusableCellIdentifier)
         tableView.register(newsPhotoTableViewCellNib, forCellReuseIdentifier: newsPhotoReusableCellIdentifier)
         tableView.register(newsWallPhotoTableViewCellNib, forCellReuseIdentifier: newsWallPhotoReusableCellIdentifier)
+        tableView.register(newsVideoTableViewCellNib, forCellReuseIdentifier: newsVideoReusableCellIdentifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
         tableView.dataSource = self
@@ -112,6 +116,10 @@ extension NewsViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: newsWallPhotoReusableCellIdentifier) as! NewsWallPhotoTableViewCell
             cell.viewModel = dataSource[indexPath.row]
             return cell
+        case "video":
+            let cell = tableView.dequeueReusableCell(withIdentifier: newsVideoReusableCellIdentifier) as! NewsVideoTableViewCell
+            cell.viewModel = dataSource[indexPath.row]
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsEmptyReusableCellIdentifier)! as UITableViewCell
             //cell.isHidden = true
@@ -141,7 +149,22 @@ extension NewsViewController {
         case "wall_photo":
             return UITableView.automaticDimension
         case "one_photo":
+            if(viewModel.widthWallPhoto == 0) {
+                return UITableView.automaticDimension
+            }
             let height = CGFloat(((Float(viewModel.heightWallPhoto)) / (Float(viewModel.widthWallPhoto)))) * UIScreen.main.bounds.width
+            if(height <= 0) {
+                return UITableView.automaticDimension
+            }
+            return height
+        case "video":
+            if(viewModel.widthVideoFrame == 0) {
+                return UITableView.automaticDimension
+            }
+            let height = CGFloat(((Float(viewModel.heightVideoFrame)) / (Float(viewModel.widthVideoFrame)))) * UIScreen.main.bounds.width
+            if(height <= 0) {
+                return UITableView.automaticDimension
+            }
             return height
         default:
             return 0

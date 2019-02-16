@@ -45,6 +45,7 @@ extension NewsInteractor: NewsInteractorInput {
             }
             var parsedItems = [NewsItem]()
             var usedPhotos = [Int]()
+            var usedVideos = [Int]()
             var usedPosts = [Int]()
             
             for newsItem in newsItems {
@@ -90,7 +91,13 @@ extension NewsInteractor: NewsInteractorInput {
                             } else {
                                 photoArray.append(photo)
                             }
-
+                        case "video":
+                            guard let video = attachment.video else { continue }
+                            usedVideos.append(video.id)
+                            parsedItems.append(NewsItem(id: newsItem.source_id,
+                                                        text: "",
+                                                        newsType: "video",
+                                                        video: video))
                         default:
                             continue
                         }

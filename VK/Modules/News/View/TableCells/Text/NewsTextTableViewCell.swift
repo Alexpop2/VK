@@ -12,7 +12,7 @@ class NewsTextTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    var viewModel: NewsTitleTableViewCellViewModel? {
+    var viewModel: NewsTextTableViewCellViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             titleLabel.text = viewModel.title

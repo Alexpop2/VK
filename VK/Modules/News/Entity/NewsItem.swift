@@ -13,6 +13,7 @@ class NewsItem {
     var newsType: String
     var photos: [PhotoItem]
     var photo: PhotoItem?
+    var video: Video?
     var id: Int
     
     init(id: Int, text: String, newsType: String) {
@@ -35,6 +36,14 @@ class NewsItem {
         self.photo = photo
         self.photos = []
         self.id = id
+    }
+    
+    init(id: Int, text: String, newsType: String, video: Video?) {
+        self.text = text
+        self.newsType = newsType
+        self.photos = []
+        self.id = id
+        self.video = video
     }
 }
 
@@ -69,4 +78,18 @@ extension NewsItem: NewsWallPhotoTableViewCellViewModel {
     }
     
     
+}
+
+extension NewsItem: NewsVideoTableViewCellViewModel {
+    var widthVideoFrame: Int {
+        return video?.width ?? 1280
+    }
+    
+    var heightVideoFrame: Int {
+        return video?.height ?? 800
+    }
+    
+    var videoFrame: String {
+        return video?.first_frame_320 ?? video?.photo_320 ?? ""
+    }
 }

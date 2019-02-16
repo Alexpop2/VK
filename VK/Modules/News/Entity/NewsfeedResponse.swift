@@ -50,6 +50,9 @@ struct Video: Codable {
     var id: Int
     var owner_id: Int
     var first_frame_320: String?
+    var width: Int?
+    var height: Int?
+    var photo_320: String?
 }
 
 struct Photos: Codable {
