@@ -18,7 +18,7 @@ class KeyValueStorage: KeyValueStorageInput {
     }
     
     func loadValue(byKey: String, loaded: (String?) -> Void) {
-        loaded(keychain["vk-token"])
+        loaded(keychain[byKey])
     }
     
     func deleteValue(byKey: String) {

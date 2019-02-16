@@ -33,7 +33,7 @@ extension AuthorizationService: AuthorizationServiceInput {
     }
     
     func authorize() {
-        let permissions = ["friends", "email", "photos", "wall"] // было friend, email, photo
+        let permissions = ["friends", "email", "photos", "wall", "video", "audio", "docs"] // было friend, email, photo
         
         VKSdk.wakeUpSession(permissions) { (state, error) in
             if (state == VKAuthorizationState.authorized) {

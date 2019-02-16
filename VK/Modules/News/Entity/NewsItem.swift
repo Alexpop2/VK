@@ -65,7 +65,7 @@ extension NewsItem: NewsWallPhotoTableViewCellViewModel {
     }
     
     var wallPhoto: String {
-        return photo?.photo_807 ?? ""
+        return photo?.photo_807 ?? photo?.photo_604 ?? ""
     }
     
     
