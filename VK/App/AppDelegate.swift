@@ -16,15 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    // MARK: - launch screen manager
+    
     var launchManager = ApplicationAssembly.resolver.resolve(LaunchManager.self)!
-    
-    //список ассамблей в массиве Assembly
-    
-    //конфигуратор 
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        VKSdk.forceLogout()
+        //VKSdk.forceLogout()
         
         window = launchManager.generateWindow()
         return true
