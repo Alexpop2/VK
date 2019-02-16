@@ -33,6 +33,8 @@ class NewsViewController: UITableViewController {
     
     private var dataSource = [NewsItem]()
     
+    private var sections = [NewsTableSection]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,6 +64,8 @@ extension NewsViewController {
         tableView.register(newsVideoTableViewCellNib, forCellReuseIdentifier: newsVideoReusableCellIdentifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.sectionHeaderHeight = 20
+        tableView.sectionFooterHeight = 20
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -81,23 +85,30 @@ extension NewsViewController: NewsViewInput {
         dataSource = newsItems
         self.tableView.reloadData()
     }
+    
+    func display(sections: [NewsTableSection]) {
+        self.sections = sections
+        self.tableView.reloadData()
+    }
 }
 
 extension NewsViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return sections[section].newsItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch dataSource[indexPath.row].newsType {
+        let section = self.sections[indexPath.section]
+        let newsElement = section.newsItems[indexPath.row]
+        switch newsElement.newsType {
         case "title":
             let cell = tableView.dequeueReusableCell(withIdentifier: newsTitleReusableCellIdentifier) as! NewsTitleTableViewCell
-            cell.viewModel = dataSource[indexPath.row]
+            cell.viewModel = newsElement
             return cell
         case "post":
-            if(dataSource[indexPath.row].text != "") {
+            if(newsElement.text != "") {
                 let cell = tableView.dequeueReusableCell(withIdentifier: newsTextReusableCellIdentifier) as! NewsTextTableViewCell
-                cell.viewModel = dataSource[indexPath.row]
+                cell.viewModel = newsElement
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: newsEmptyReusableCellIdentifier)! as UITableViewCell
@@ -106,19 +117,19 @@ extension NewsViewController {
             }
         case "photo":
             let cell = tableView.dequeueReusableCell(withIdentifier: newsPhotoReusableCellIdentifier) as! NewsPhotoTableViewCell
-            cell.viewModel = dataSource[indexPath.row]
+            cell.viewModel = newsElement
             return cell
         case "wall_photo":
             let cell = tableView.dequeueReusableCell(withIdentifier: newsPhotoReusableCellIdentifier) as! NewsPhotoTableViewCell
-            cell.viewModel = dataSource[indexPath.row]
+            cell.viewModel = newsElement
             return cell
         case "one_photo":
             let cell = tableView.dequeueReusableCell(withIdentifier: newsWallPhotoReusableCellIdentifier) as! NewsWallPhotoTableViewCell
-            cell.viewModel = dataSource[indexPath.row]
+            cell.viewModel = newsElement
             return cell
         case "video":
             let cell = tableView.dequeueReusableCell(withIdentifier: newsVideoReusableCellIdentifier) as! NewsVideoTableViewCell
-            cell.viewModel = dataSource[indexPath.row]
+            cell.viewModel = newsElement
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsEmptyReusableCellIdentifier)! as UITableViewCell
@@ -127,15 +138,17 @@ extension NewsViewController {
         }
     }
     
-}
-
-extension NewsViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let viewModel = dataSource[indexPath.row]
+        let section = self.sections[indexPath.section]
+        let viewModel = section.newsItems[indexPath.row]
         switch viewModel.newsType {
         case "title":
             return UITableView.automaticDimension
@@ -169,5 +182,12 @@ extension NewsViewController {
         default:
             return 0
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if(section == 0) {
+            return CGFloat.leastNormalMagnitude
+        }
+        return 20
     }
 }

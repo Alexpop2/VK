@@ -46,6 +46,10 @@ extension NewsPresenter: NewsPresenterInput {
 }
 
 extension NewsPresenter: NewsInteractorOutput {
+    func setDataSource(parsedInput: [NewsTableSection]) {
+        moduleView.display(sections: parsedInput)
+    }
+    
     func setDataSource(parsedInput: [NewsItem]) {
         moduleView.display(newsItems: parsedInput)
     }

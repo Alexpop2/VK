@@ -18,5 +18,6 @@ protocol NewsInteractorInput: class {
 protocol NewsInteractorOutput: class {
     func authorizationRequired()
     
-    func setDataSource(parsedInput: [NewsItem]) 
+    func setDataSource(parsedInput: [NewsItem])
+    func setDataSource(parsedInput: [NewsTableSection]) 
 }
