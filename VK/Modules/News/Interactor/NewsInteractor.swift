@@ -47,6 +47,9 @@ extension NewsInteractor: NewsInteractorInput {
             var usedPhotos = [Int]()
             var usedVideos = [Int]()
             var usedPosts = [Int]()
+            var sections = [NewsTableSection]()
+            var previousPostSourceID = 0
+            var previousPostDate = 0
             
             for newsItem in newsItems {
                 switch newsItem.type {
@@ -56,6 +59,8 @@ extension NewsInteractor: NewsInteractorInput {
                         continue
                     }
                     usedPosts.append(post_id)
+                    previousPostSourceID = newsItem.source_id
+                    previousPostDate = newsItem.date
                     if(newsItem.source_id < 0) {
                         guard let group = groups.first(where: { $0.id == (newsItem.source_id * -1) } ) else {
                             return
@@ -74,7 +79,11 @@ extension NewsInteractor: NewsInteractorInput {
                     guard let text = newsItem.text else { continue }
 
                     parsedItems.append(NewsItem(id: newsItem.source_id, text: "\(text)", newsType: newsItem.type))
-                    guard let attachments = newsItem.attachments else { continue }
+                    guard let attachments = newsItem.attachments else {
+                        sections.append(NewsTableSection(newsItems: parsedItems))
+                        parsedItems.removeAll()
+                        continue
+                    }
                     var firstPhoto = false
                     var photoArray = [PhotoItem]()
                     for attachment in attachments {
@@ -108,6 +117,8 @@ extension NewsInteractor: NewsInteractorInput {
                                                     newsType: "photo",
                                                     photos: photoArray))
                     }
+                    sections.append(NewsTableSection(newsItems: parsedItems))
+                    parsedItems.removeAll()
                 case "photo":
                     guard let photos = newsItem.photos else { continue }
                     guard let photosItems = photos.items else { continue }
@@ -115,6 +126,8 @@ extension NewsInteractor: NewsInteractorInput {
                                                 text: "",
                                                 newsType: newsItem.type,
                                                 photos: photosItems))
+                    sections.append(NewsTableSection(newsItems: parsedItems))
+                    parsedItems.removeAll()
                 case "wall_photo":
                     guard let photos = newsItem.photos else { continue }
                     guard let photosItems = photos.items else { continue }
@@ -122,17 +135,29 @@ extension NewsInteractor: NewsInteractorInput {
                         return !usedPhotos.contains($0.id)
                     })
                     if(showPhotoItems.count > 0) {
-                        parsedItems.append(NewsItem(id: newsItem.source_id,
-                                                    text: "",
-                                                    newsType: newsItem.type,
-                                                    photos: showPhotoItems))
+                        if(previousPostSourceID == newsItem.source_id && (previousPostDate >= newsItem.date-2
+                            && previousPostDate <= newsItem.date+2)) {
+                            sections[sections.count-1].newsItems.append(NewsItem(id: newsItem.source_id,
+                                                                                 text: "",
+                                                                                 newsType: newsItem.type,
+                                                                                 photos: showPhotoItems))
+                            previousPostDate = 0
+                            previousPostSourceID = 0
+                        } else {
+                            parsedItems.append(NewsItem(id: newsItem.source_id,
+                                                        text: "",
+                                                        newsType: newsItem.type,
+                                                        photos: showPhotoItems))
+                            sections.append(NewsTableSection(newsItems: parsedItems))
+                            parsedItems.removeAll()
+                        }
                     }
                     usedPhotos.removeAll()
                 default:
                     continue
                 }
             }
-            self.interactorOutput.setDataSource(parsedInput: parsedItems)
+            self.interactorOutput.setDataSource(parsedInput: sections)
         }) { (code) in
             print("Error")
         }

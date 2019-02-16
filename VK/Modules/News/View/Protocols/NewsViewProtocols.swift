@@ -12,6 +12,7 @@ protocol NewsViewInput: class {
     var output: NewsViewOutput { get set }
     
     func display(newsItems: [NewsItem])
+    func display(sections: [NewsTableSection])
 }
 
 protocol NewsViewOutput: class {
