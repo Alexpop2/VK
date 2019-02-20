@@ -17,7 +17,7 @@ enum AuthorizationRoute {
 
 // MARK: - Auth Router protocol
 
-protocol AuthorizationRouter {
+protocol AuthorizationRouter: AutoMockable {
     
     func getConfiguredRootViewController() -> UIViewController
     func route(to: AuthorizationRoute)

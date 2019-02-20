@@ -15,10 +15,10 @@ final class PresentersAssembly: Assembly {
     func assemble(container: Container) {
         container.register(AuthorizationPresenter.self) { resolver in
             AuthorizationPresenter()
-            }.inObjectScope(.transient)
+            }.inObjectScope(.weak)
         container.register(NewsPresenter.self) { resolver in
             NewsPresenter()
-            }.inObjectScope(.transient)
+            }.inObjectScope(.weak)
     }
     
 }
