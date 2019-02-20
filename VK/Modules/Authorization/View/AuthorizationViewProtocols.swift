@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-protocol AuthorizationViewInput: class {
+protocol AuthorizationViewInput: class, AutoMockable {
     var output: AuthorizationViewOutput { get set }
     
     func showAuthScreen(data: AuthorizationData)
 }
 
-protocol AuthorizationViewOutput: class {
+protocol AuthorizationViewOutput: class, AutoMockable {
     func viewDidAppear()
 }

@@ -4,6 +4,7 @@ target 'VK' do
   pod 'Swinject'
   pod 'KeychainAccess'
   pod 'Kingfisher'
+  pod 'Sourcery'
   use_frameworks!
 
 end

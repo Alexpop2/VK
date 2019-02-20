@@ -17,7 +17,7 @@ enum NewsRoute {
 
 // MARK: - Auth Router protocol
 
-protocol NewsRouter {
+protocol NewsRouter: AutoMockable {
     
     func getConfiguredRootViewController() -> UIViewController
     func route(to: NewsRoute)

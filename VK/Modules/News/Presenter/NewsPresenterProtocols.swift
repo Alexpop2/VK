@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol NewsPresenterInput: class {
+protocol NewsPresenterInput: class, AutoMockable {
     var delegate: NewsPresenterDelegate { get set }
     var view: NewsViewInput { get set }
     var interactor: NewsInteractorInput { get set }
 }
 
-protocol NewsPresenterDelegate: class {
+protocol NewsPresenterDelegate: class, AutoMockable {
     func authorizationRequired()
 }

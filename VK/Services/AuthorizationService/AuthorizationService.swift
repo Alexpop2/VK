@@ -9,6 +9,10 @@
 import Foundation
 import VK_ios_sdk
 
+enum AuthorizationError: Error {
+    case failed
+}
+
 class AuthorizationService: NSObject {
     private var authServiceOutput: AuthorizationServiceOutput!
     private var data: AuthorizationData?
@@ -54,9 +58,7 @@ extension AuthorizationService: VKSdkDelegate {
     }
     
     func vkSdkUserAuthorizationFailed() {
-        // TODO: realise
-        
-        print("controller auth failed")
+        output.authorizationFailed(withError: AuthorizationError.failed)
     }
 }
 
@@ -66,6 +68,7 @@ extension AuthorizationService: VKSdkUIDelegate {
     }
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        // TODO: - сделать возможность ввода капчи
         print("captcha error")
     }
 }

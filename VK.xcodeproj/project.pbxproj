@@ -37,8 +37,6 @@
 		602ABE0B21FCB3E50070980A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE0A21FCB3E50070980A /* AppDelegate.swift */; };
 		602ABE1221FCB3E60070980A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE1121FCB3E60070980A /* Assets.xcassets */; };
 		602ABE1521FCB3E60070980A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602ABE1321FCB3E60070980A /* LaunchScreen.storyboard */; };
-		602ABE2021FCB3E60070980A /* VKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE1F21FCB3E60070980A /* VKTests.swift */; };
-		602ABE2B21FCB3E60070980A /* VKUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE2A21FCB3E60070980A /* VKUITests.swift */; };
 		602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4221FCB6F60070980A /* AuthorizationInteractor.swift */; };
 		602ABE4521FCB70B0070980A /* AuthorizationInteractorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4421FCB70B0070980A /* AuthorizationInteractorProtocols.swift */; };
 		602ABE4721FCB71A0070980A /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4621FCB71A0070980A /* AuthorizationPresenter.swift */; };
@@ -59,10 +57,15 @@
 		6097A08A2218295500F6B9E2 /* NewsVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6097A0882218295500F6B9E2 /* NewsVideoTableViewCell.xib */; };
 		6097A08C2218296B00F6B9E2 /* NewsVideoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6097A08B2218296B00F6B9E2 /* NewsVideoTableViewCellViewModel.swift */; };
 		6097A08E2218376400F6B9E2 /* NewsTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6097A08D2218376400F6B9E2 /* NewsTableSection.swift */; };
+		6097A0952218475700F6B9E2 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6097A0942218475700F6B9E2 /* AutoMockable.swift */; };
+		6097A0972218492600F6B9E2 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6097A0962218492600F6B9E2 /* AutoMockable.generated.swift */; };
 		60A5A890220E4DB80074A75B /* NewsTextTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5A88F220E4DB80074A75B /* NewsTextTableViewCellViewModel.swift */; };
 		60A5A895220E53A90074A75B /* NewsPhotoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5A894220E53A90074A75B /* NewsPhotoTableViewCellViewModel.swift */; };
 		60A5A897220E54BE0074A75B /* NewsPhotoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5A896220E54BE0074A75B /* NewsPhotoCollectionViewCellViewModel.swift */; };
 		60A5A89E220E619A0074A75B /* NewsWallPhotoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A5A89D220E619A0074A75B /* NewsWallPhotoTableViewCellViewModel.swift */; };
+		60DE1AFB221C6CAE00666D9A /* AuthorizationPresenterInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE1AFA221C6CAE00666D9A /* AuthorizationPresenterInteractorTest.swift */; };
+		60DE1AFD221C6DCE00666D9A /* ManualMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE1AFC221C6DCE00666D9A /* ManualMockable.swift */; };
+		60DE1B0D221C79CE00666D9A /* NewsPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DE1B0C221C79CE00666D9A /* NewsPITest.swift */; };
 		614C0C7C7E56B6F31925C27E /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD444277C02AEF5D3D30048D /* NewsRouter.swift */; };
 		853A8312BF0A08F0AACDBD45 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D3E8A5072FC1DBFE99F39 /* NewsPresenter.swift */; };
 		974E61F11059091E75F45E1F /* Pods_VK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13C2FA0F42CF72B51889881 /* Pods_VK.framework */; };
@@ -71,14 +74,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		602ABE1C21FCB3E60070980A /* PBXContainerItemProxy */ = {
+		60DE1AF4221C6BE400666D9A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 602ABDFF21FCB3E40070980A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 602ABE0621FCB3E50070980A;
 			remoteInfo = VK;
 		};
-		602ABE2721FCB3E60070980A /* PBXContainerItemProxy */ = {
+		60DE1B07221C794800666D9A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 602ABDFF21FCB3E40070980A /* Project object */;
 			proxyType = 1;
@@ -119,10 +122,6 @@
 		602ABE0A21FCB3E50070980A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		602ABE1121FCB3E60070980A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		602ABE1421FCB3E60070980A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		602ABE1B21FCB3E60070980A /* VKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		602ABE1F21FCB3E60070980A /* VKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTests.swift; sourceTree = "<group>"; };
-		602ABE2621FCB3E60070980A /* VKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		602ABE2A21FCB3E60070980A /* VKUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKUITests.swift; sourceTree = "<group>"; };
 		602ABE4221FCB6F60070980A /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		602ABE4421FCB70B0070980A /* AuthorizationInteractorProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorProtocols.swift; sourceTree = "<group>"; };
 		602ABE4621FCB71A0070980A /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
@@ -132,8 +131,6 @@
 		602ABE4E21FCC1F40070980A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocols.swift; sourceTree = "<group>"; };
 		602ABE5321FCC5330070980A /* AuthorizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationData.swift; sourceTree = "<group>"; };
-		603CE6B12204ECB600414FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		603CE6B32204ECC300414FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsStoryboard.storyboard; sourceTree = "<group>"; };
 		606CF553220DF5F800D70A3F /* NewsTitleTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitleTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		606CF556220DFFFA00D70A3F /* NewsfeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedResponse.swift; sourceTree = "<group>"; };
@@ -145,10 +142,19 @@
 		6097A0882218295500F6B9E2 /* NewsVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsVideoTableViewCell.xib; sourceTree = "<group>"; };
 		6097A08B2218296B00F6B9E2 /* NewsVideoTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVideoTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		6097A08D2218376400F6B9E2 /* NewsTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableSection.swift; sourceTree = "<group>"; };
+		6097A0942218475700F6B9E2 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
+		6097A0962218492600F6B9E2 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		60A5A88F220E4DB80074A75B /* NewsTextTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTextTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		60A5A894220E53A90074A75B /* NewsPhotoTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		60A5A896220E54BE0074A75B /* NewsPhotoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPhotoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		60A5A89D220E619A0074A75B /* NewsWallPhotoTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWallPhotoTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		60DE1AEF221C6BE400666D9A /* AuthorizationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthorizationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60DE1AF3221C6BE400666D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60DE1AFA221C6CAE00666D9A /* AuthorizationPresenterInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterInteractorTest.swift; sourceTree = "<group>"; };
+		60DE1AFC221C6DCE00666D9A /* ManualMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualMockable.swift; sourceTree = "<group>"; };
+		60DE1B02221C794800666D9A /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60DE1B06221C794800666D9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60DE1B0C221C79CE00666D9A /* NewsPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPITest.swift; sourceTree = "<group>"; };
 		6F451AB4369F5213AC62B328 /* NewsInteractorProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsInteractorProtocols.swift; sourceTree = "<group>"; };
 		77FC5662E696881E3FEEE177 /* NewsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NewsInteractor.swift; sourceTree = "<group>"; };
 		8717FE620F043EA598D93843 /* Pods-VK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VK/Pods-VK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,14 +174,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE1821FCB3E60070980A /* Frameworks */ = {
+		60DE1AEC221C6BE400666D9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE2321FCB3E60070980A /* Frameworks */ = {
+		60DE1AFF221C794800666D9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,8 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				602ABE0921FCB3E50070980A /* VK */,
-				602ABE1E21FCB3E60070980A /* VKTests */,
-				602ABE2921FCB3E60070980A /* VKUITests */,
+				60DE1AF0221C6BE400666D9A /* AuthorizationTests */,
+				60DE1B03221C794800666D9A /* NewsTests */,
 				602ABE0821FCB3E50070980A /* Products */,
 				4557F2A9BEC7820CB31A3E1C /* Pods */,
 				C245C300C1EBCE272C6AE206 /* Frameworks */,
@@ -265,8 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				602ABE0721FCB3E50070980A /* VK.app */,
-				602ABE1B21FCB3E60070980A /* VKTests.xctest */,
-				602ABE2621FCB3E60070980A /* VKUITests.xctest */,
+				60DE1AEF221C6BE400666D9A /* AuthorizationTests.xctest */,
+				60DE1B02221C794800666D9A /* NewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,6 +280,9 @@
 		602ABE0921FCB3E50070980A /* VK */ = {
 			isa = PBXGroup;
 			children = (
+				6097A0962218492600F6B9E2 /* AutoMockable.generated.swift */,
+				6097A0942218475700F6B9E2 /* AutoMockable.swift */,
+				60DE1AFC221C6DCE00666D9A /* ManualMockable.swift */,
 				600303102204C5B800EC014C /* Info.plist */,
 				602ABE3821FCB3FE0070980A /* App */,
 				602ABE3921FCB40A0070980A /* Modules */,
@@ -281,24 +290,6 @@
 				602ABE3B21FCB4180070980A /* Resources */,
 			);
 			path = VK;
-			sourceTree = "<group>";
-		};
-		602ABE1E21FCB3E60070980A /* VKTests */ = {
-			isa = PBXGroup;
-			children = (
-				602ABE1F21FCB3E60070980A /* VKTests.swift */,
-				603CE6B12204ECB600414FE2 /* Info.plist */,
-			);
-			path = VKTests;
-			sourceTree = "<group>";
-		};
-		602ABE2921FCB3E60070980A /* VKUITests */ = {
-			isa = PBXGroup;
-			children = (
-				602ABE2A21FCB3E60070980A /* VKUITests.swift */,
-				603CE6B32204ECC300414FE2 /* Info.plist */,
-			);
-			path = VKUITests;
 			sourceTree = "<group>";
 		};
 		602ABE3821FCB3FE0070980A /* App */ = {
@@ -491,6 +482,32 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
+		60DE1AF0221C6BE400666D9A /* AuthorizationTests */ = {
+			isa = PBXGroup;
+			children = (
+				60DE1AF9221C6C8100666D9A /* VIPER */,
+				60DE1AF3221C6BE400666D9A /* Info.plist */,
+			);
+			path = AuthorizationTests;
+			sourceTree = "<group>";
+		};
+		60DE1AF9221C6C8100666D9A /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				60DE1AFA221C6CAE00666D9A /* AuthorizationPresenterInteractorTest.swift */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		60DE1B03221C794800666D9A /* NewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				60DE1B0C221C79CE00666D9A /* NewsPITest.swift */,
+				60DE1B06221C794800666D9A /* Info.plist */,
+			);
+			path = NewsTests;
+			sourceTree = "<group>";
+		};
 		6408EDE794D4648AD279333E /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,41 +595,41 @@
 			productReference = 602ABE0721FCB3E50070980A /* VK.app */;
 			productType = "com.apple.product-type.application";
 		};
-		602ABE1A21FCB3E60070980A /* VKTests */ = {
+		60DE1AEE221C6BE400666D9A /* AuthorizationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 602ABE3221FCB3E60070980A /* Build configuration list for PBXNativeTarget "VKTests" */;
+			buildConfigurationList = 60DE1AF8221C6BE400666D9A /* Build configuration list for PBXNativeTarget "AuthorizationTests" */;
 			buildPhases = (
-				602ABE1721FCB3E60070980A /* Sources */,
-				602ABE1821FCB3E60070980A /* Frameworks */,
-				602ABE1921FCB3E60070980A /* Resources */,
+				60DE1AEB221C6BE400666D9A /* Sources */,
+				60DE1AEC221C6BE400666D9A /* Frameworks */,
+				60DE1AED221C6BE400666D9A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				602ABE1D21FCB3E60070980A /* PBXTargetDependency */,
+				60DE1AF5221C6BE400666D9A /* PBXTargetDependency */,
 			);
-			name = VKTests;
-			productName = VKTests;
-			productReference = 602ABE1B21FCB3E60070980A /* VKTests.xctest */;
+			name = AuthorizationTests;
+			productName = AuthorizationTests;
+			productReference = 60DE1AEF221C6BE400666D9A /* AuthorizationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		602ABE2521FCB3E60070980A /* VKUITests */ = {
+		60DE1B01221C794800666D9A /* NewsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 602ABE3521FCB3E60070980A /* Build configuration list for PBXNativeTarget "VKUITests" */;
+			buildConfigurationList = 60DE1B09221C794800666D9A /* Build configuration list for PBXNativeTarget "NewsTests" */;
 			buildPhases = (
-				602ABE2221FCB3E60070980A /* Sources */,
-				602ABE2321FCB3E60070980A /* Frameworks */,
-				602ABE2421FCB3E60070980A /* Resources */,
+				60DE1AFE221C794800666D9A /* Sources */,
+				60DE1AFF221C794800666D9A /* Frameworks */,
+				60DE1B00221C794800666D9A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				602ABE2821FCB3E60070980A /* PBXTargetDependency */,
+				60DE1B08221C794800666D9A /* PBXTargetDependency */,
 			);
-			name = VKUITests;
-			productName = VKUITests;
-			productReference = 602ABE2621FCB3E60070980A /* VKUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = NewsTests;
+			productName = NewsTests;
+			productReference = 60DE1B02221C794800666D9A /* NewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -628,13 +645,14 @@
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
-					602ABE1A21FCB3E60070980A = {
+					60DE1AEE221C6BE400666D9A = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 602ABE0621FCB3E50070980A;
 					};
-					602ABE2521FCB3E60070980A = {
+					60DE1B01221C794800666D9A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 602ABE0621FCB3E50070980A;
 					};
@@ -654,8 +672,8 @@
 			projectRoot = "";
 			targets = (
 				602ABE0621FCB3E50070980A /* VK */,
-				602ABE1A21FCB3E60070980A /* VKTests */,
-				602ABE2521FCB3E60070980A /* VKUITests */,
+				60DE1AEE221C6BE400666D9A /* AuthorizationTests */,
+				60DE1B01221C794800666D9A /* NewsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -678,14 +696,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE1921FCB3E60070980A /* Resources */ = {
+		60DE1AED221C6BE400666D9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE2421FCB3E60070980A /* Resources */ = {
+		60DE1B00221C794800666D9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -753,9 +771,12 @@
 				602ABE4F21FCC1F40070980A /* AuthorizationService.swift in Sources */,
 				6007F3BA221765A50016A6AA /* NewsTitleTableViewCell.swift in Sources */,
 				6007F3972215CC6A0016A6AA /* StoryboardName.swift in Sources */,
+				6097A0952218475700F6B9E2 /* AutoMockable.swift in Sources */,
 				600303062204BDE800EC014C /* KeyValueStorage.swift in Sources */,
+				6097A0972218492600F6B9E2 /* AutoMockable.generated.swift in Sources */,
 				602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */,
 				6007F3B6221757B90016A6AA /* NewsTextTableViewCell.swift in Sources */,
+				60DE1AFD221C6DCE00666D9A /* ManualMockable.swift in Sources */,
 				602ABE0B21FCB3E50070980A /* AppDelegate.swift in Sources */,
 				6007F3A722170A700016A6AA /* ManagerAssembly.swift in Sources */,
 				602ABE4521FCB70B0070980A /* AuthorizationInteractorProtocols.swift in Sources */,
@@ -795,34 +816,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE1721FCB3E60070980A /* Sources */ = {
+		60DE1AEB221C6BE400666D9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602ABE2021FCB3E60070980A /* VKTests.swift in Sources */,
+				60DE1AFB221C6CAE00666D9A /* AuthorizationPresenterInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		602ABE2221FCB3E60070980A /* Sources */ = {
+		60DE1AFE221C794800666D9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602ABE2B21FCB3E60070980A /* VKUITests.swift in Sources */,
+				60DE1B0D221C79CE00666D9A /* NewsPITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		602ABE1D21FCB3E60070980A /* PBXTargetDependency */ = {
+		60DE1AF5221C6BE400666D9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 602ABE0621FCB3E50070980A /* VK */;
-			targetProxy = 602ABE1C21FCB3E60070980A /* PBXContainerItemProxy */;
+			targetProxy = 60DE1AF4221C6BE400666D9A /* PBXContainerItemProxy */;
 		};
-		602ABE2821FCB3E60070980A /* PBXTargetDependency */ = {
+		60DE1B08221C794800666D9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 602ABE0621FCB3E50070980A /* VK */;
-			targetProxy = 602ABE2721FCB3E60070980A /* PBXContainerItemProxy */;
+			targetProxy = 60DE1B07221C794800666D9A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -987,16 +1008,16 @@
 			};
 			name = Release;
 		};
-		602ABE3321FCB3E60070980A /* Debug */ = {
+		60DE1AF6221C6BE400666D9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
-				INFOPLIST_FILE = VKTests/Info.plist;
+				INFOPLIST_FILE = AuthorizationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.VKTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.AuthorizationTests";
+				PRODUCT_MODULE_NAME = VKAuthTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1004,16 +1025,16 @@
 			};
 			name = Debug;
 		};
-		602ABE3421FCB3E60070980A /* Release */ = {
+		60DE1AF7221C6BE400666D9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
-				INFOPLIST_FILE = VKTests/Info.plist;
+				INFOPLIST_FILE = AuthorizationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.VKTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.AuthorizationTests";
+				PRODUCT_MODULE_NAME = VKAuthTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1021,35 +1042,40 @@
 			};
 			name = Release;
 		};
-		602ABE3621FCB3E60070980A /* Debug */ = {
+		60DE1B0A221C794800666D9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
-				INFOPLIST_FILE = VKUITests/Info.plist;
+				INFOPLIST_FILE = NewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.VKUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.NewsTests";
+				PRODUCT_MODULE_NAME = VKNewsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VK;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VK.app/VK";
 			};
 			name = Debug;
 		};
-		602ABE3721FCB3E60070980A /* Release */ = {
+		60DE1B0B221C794800666D9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G8AA5PA5TS;
-				INFOPLIST_FILE = VKUITests/Info.plist;
+				INFOPLIST_FILE = NewsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.VKUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.NewsTests";
+				PRODUCT_MODULE_NAME = VKNewsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VK;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VK.app/VK";
 			};
 			name = Release;
 		};
@@ -1074,20 +1100,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		602ABE3221FCB3E60070980A /* Build configuration list for PBXNativeTarget "VKTests" */ = {
+		60DE1AF8221C6BE400666D9A /* Build configuration list for PBXNativeTarget "AuthorizationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				602ABE3321FCB3E60070980A /* Debug */,
-				602ABE3421FCB3E60070980A /* Release */,
+				60DE1AF6221C6BE400666D9A /* Debug */,
+				60DE1AF7221C6BE400666D9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		602ABE3521FCB3E60070980A /* Build configuration list for PBXNativeTarget "VKUITests" */ = {
+		60DE1B09221C794800666D9A /* Build configuration list for PBXNativeTarget "NewsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				602ABE3621FCB3E60070980A /* Debug */,
-				602ABE3721FCB3E60070980A /* Release */,
+				60DE1B0A221C794800666D9A /* Debug */,
+				60DE1B0B221C794800666D9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

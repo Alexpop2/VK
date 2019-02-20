@@ -50,10 +50,6 @@ extension NewsPresenter: NewsInteractorOutput {
         moduleView.display(sections: parsedInput)
     }
     
-    func setDataSource(parsedInput: [NewsItem]) {
-        moduleView.display(newsItems: parsedInput)
-    }
-    
     func authorizationRequired() {
         delegate.authorizationRequired()
     }

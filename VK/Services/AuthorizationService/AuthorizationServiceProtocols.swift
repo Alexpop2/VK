@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol AuthorizationServiceInput: class {
+protocol AuthorizationServiceInput: class, AutoMockable {
     var output: AuthorizationServiceOutput { get set }
     
     func authorize() //запустит vk sdk получит токен,
 }
 
 //происходит аутпут в интерактор затем в презентер и показываются новости, а так view controller это заглушка в модуле авторизации
-protocol AuthorizationServiceOutput: class {
+protocol AuthorizationServiceOutput: class, AutoMockable {
     func authorizationCompleted()
     func recieved(token: String)
     func authorizationFailed(withError error: Error)

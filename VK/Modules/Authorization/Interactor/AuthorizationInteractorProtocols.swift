@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol AuthorizationInteractorInput: class {
+protocol AuthorizationInteractorInput: class, AutoMockable {
     var output: AuthorizationInteractorOutput { get set }
     func authorize()
 }
 
-protocol AuthorizationInteractorOutput: class {
+protocol AuthorizationInteractorOutput: class, AutoMockable {
     func authorizationCompleted()
     func authorizationFailed(withError error: Error)
     func presentAuthorizationScreen(data: AuthorizationData)
 }
 
-protocol RoutingAuthorizationView: class {
+protocol RoutingAuthorizationView: class, AutoMockable {
     func presentAuthorizationView()
 }

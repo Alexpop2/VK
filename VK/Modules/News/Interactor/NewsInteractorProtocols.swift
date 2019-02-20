@@ -8,16 +8,15 @@
 
 import Foundation
 
-protocol NewsInteractorInput: class {
+protocol NewsInteractorInput: class, AutoMockable {
     var output: NewsInteractorOutput { get set }
     
     func loadToken()
     func getNews()
 }
 
-protocol NewsInteractorOutput: class {
+protocol NewsInteractorOutput: class, AutoMockable {
     func authorizationRequired()
     
-    func setDataSource(parsedInput: [NewsItem])
     func setDataSource(parsedInput: [NewsTableSection]) 
 }
