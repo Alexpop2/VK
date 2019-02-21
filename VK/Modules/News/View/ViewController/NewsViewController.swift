@@ -51,11 +51,6 @@ class NewsViewController: UITableViewController {
         viewOutput.viewDidLoad()
         //display(newsItems: [NewsItem(text: "1", newsType: "post")])
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
 
 }
 
@@ -230,6 +225,11 @@ extension NewsViewController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return createUIViewSeparator(y: -0.5)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        view.endEditing(true)
+    }
+    
 }
 
 extension NewsViewController: UISearchBarDelegate {
