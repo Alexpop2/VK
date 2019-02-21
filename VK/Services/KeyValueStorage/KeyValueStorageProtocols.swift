@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Protocols for KeyValueStorage
+
 protocol KeyValueStorageInput {
     func loadValue(byKey: String, loaded: (String?) -> Void)
     func addValue(forKey: String, data: String)

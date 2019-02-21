@@ -13,6 +13,7 @@ protocol NewsInteractorInput: class, AutoMockable {
     
     func loadToken()
     func getNews()
+    func searchNews(byText: String)
 }
 
 protocol NewsInteractorOutput: class, AutoMockable {

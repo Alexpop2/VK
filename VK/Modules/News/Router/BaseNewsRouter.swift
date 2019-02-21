@@ -36,6 +36,7 @@ extension BaseNewsRouter: NewsRouter {
         let interactor = NewsInteractor()
         let keyValueStorage = resolver.resolve(KeyValueStorage.self)!
         let internetService = resolver.resolve(InternetService.self)!
+        let newsfeedParser = resolver.resolve(NewsfeedParser.self)!
         
         viewController.output = presenter
         presenter.interactor = interactor
@@ -44,6 +45,7 @@ extension BaseNewsRouter: NewsRouter {
         
         interactor.keyValueStorage = keyValueStorage
         interactor.internetService = internetService
+        interactor.newsfeedParser = newsfeedParser
         
         presenter.delegate = self
         

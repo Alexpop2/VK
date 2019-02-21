@@ -310,6 +310,21 @@ class NewsInteractorInputMock: NewsInteractorInput {
         getNewsClosure?()
     }
 
+    //MARK: - searchNews
+
+    var searchNewsByTextCallsCount = 0
+    var searchNewsByTextCalled: Bool {
+        return searchNewsByTextCallsCount > 0
+    }
+    var searchNewsByTextReceivedByText: String?
+    var searchNewsByTextClosure: ((String) -> Void)?
+
+    func searchNews(byText: String) {
+        searchNewsByTextCallsCount += 1
+        searchNewsByTextReceivedByText = byText
+        searchNewsByTextClosure?(byText)
+    }
+
 }
 class NewsInteractorOutputMock: NewsInteractorOutput {
 
@@ -444,6 +459,21 @@ class NewsViewOutputMock: NewsViewOutput {
     func viewDidLoad() {
         viewDidLoadCallsCount += 1
         viewDidLoadClosure?()
+    }
+
+    //MARK: - textChanged
+
+    var textChangedDataCallsCount = 0
+    var textChangedDataCalled: Bool {
+        return textChangedDataCallsCount > 0
+    }
+    var textChangedDataReceivedData: String?
+    var textChangedDataClosure: ((String) -> Void)?
+
+    func textChanged(data: String) {
+        textChangedDataCallsCount += 1
+        textChangedDataReceivedData = data
+        textChangedDataClosure?(data)
     }
 
 }

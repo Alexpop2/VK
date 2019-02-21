@@ -17,9 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Nye-Wn-cjF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="QkM-uR-F2n" id="HcL-dZ-SjM"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsEmptyCellReusableIdentifier" rowHeight="0.0" id="XRc-VS-ZUb">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XRc-VS-ZUb" id="0rX-fM-yPt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -32,6 +40,9 @@
                             <outlet property="delegate" destination="QkM-uR-F2n" id="XUy-nF-FWi"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="Nye-Wn-cjF" id="di9-dU-Nci"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6G-9H-CWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -32,12 +32,27 @@ struct Group: Codable {
 
 struct NewsItems: Codable {
     var text: String?
-    var type: String
+    var type: String?
+    var post_type: String?
     var photos: Photos?
-    var source_id: Int
+    var source_id: Int?
+    var owner_id: Int?
     var attachments: [Attachments]?
     var post_id: Int?
     var date: Int
+    var likes: Likes?
+    var reposts: Reposts?
+    var id: Int?
+    
+    var extra_type: [String]?
+}
+
+struct Likes: Codable {
+    var count: Int
+}
+
+struct Reposts: Codable {
+    var count: Int
 }
 
 struct Attachments: Codable {
