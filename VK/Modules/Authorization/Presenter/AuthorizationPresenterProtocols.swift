@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-protocol AuthorizationPresenterInput: class {
+protocol AuthorizationPresenterInput: class, AutoMockable {
     var delegate: AuthorizationPresenterDelegate { get set }
     var view: AuthorizationViewInput { get set }
     var interactor: AuthorizationInteractorInput { get set }
 }
 
-protocol AuthorizationPresenterDelegate: class {
+protocol AuthorizationPresenterDelegate: class, AutoMockable {
     func authorizationCompleted()
 }

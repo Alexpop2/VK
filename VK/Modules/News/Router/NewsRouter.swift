@@ -7,7 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
-class NewsRouter {
+// MARK: - enum for segue screens
+
+enum NewsRoute {
+    case authorization
+}
+
+// MARK: - Auth Router protocol
+
+protocol NewsRouter: AutoMockable {
+    
+    func getConfiguredRootViewController() -> UIViewController
+    func route(to: NewsRoute)
     
 }

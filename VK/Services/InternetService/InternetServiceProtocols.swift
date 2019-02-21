@@ -14,3 +14,5 @@ protocol InternetServiceInput: class { //InternetService
                      success: @escaping (T) -> Void,
                      failure: @escaping (Int) -> Void) where T : Codable
 }
+
+protocol InternetServiceOutput: class {}

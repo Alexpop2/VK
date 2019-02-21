@@ -1,12 +1,14 @@
 PODS:
   - KeychainAccess (3.1.2)
   - Kingfisher (5.0.1)
+  - Sourcery (0.15.0)
   - Swinject (2.5.0)
   - VK-ios-sdk (1.4.6)
 
 DEPENDENCIES:
   - KeychainAccess
   - Kingfisher
+  - Sourcery
   - Swinject
   - VK-ios-sdk
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - KeychainAccess
     - Kingfisher
+    - Sourcery
     - Swinject
     - VK-ios-sdk
 
 SPEC CHECKSUMS:
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
+  Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   VK-ios-sdk: 7fd48bc5aaa6b96c3197c1987eb6593f2ea67331
 
-PODFILE CHECKSUM: 0a95a771db607ba1480d222120248028bfe7d12a
+PODFILE CHECKSUM: 6f72e8db5769c33c17de1c2c6a0f1f0eef3d03ec
 
 COCOAPODS: 1.5.3

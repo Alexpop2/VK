@@ -46,8 +46,8 @@ extension NewsPresenter: NewsPresenterInput {
 }
 
 extension NewsPresenter: NewsInteractorOutput {
-    func setDataSource(parsedInput: [NewsItem]) {
-        moduleView.display(newsItems: parsedInput)
+    func setDataSource(parsedInput: [NewsTableSection]) {
+        moduleView.display(sections: parsedInput)
     }
     
     func authorizationRequired() {
@@ -56,10 +56,16 @@ extension NewsPresenter: NewsInteractorOutput {
 }
 
 extension NewsPresenter: NewsViewOutput {
+    func textChanged(data: String) {
+        if(data == "") {
+            interactor.getNews()
+        } else {
+            interactor.searchNews(byText: data)
+        }
+    }
+    
     func viewDidLoad() {
         interactor.loadToken()
         interactor.getNews()
     }
 }
-
-extension NewsPresenter: Presentable {}

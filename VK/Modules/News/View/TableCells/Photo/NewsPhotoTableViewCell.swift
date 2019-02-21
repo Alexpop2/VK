@@ -2,17 +2,19 @@
 //  NewsPhotoTableViewCell.swift
 //  VK
 //
-//  Created by Рабочий on 09/02/2019.
+//  Created by Рабочий on 16/02/2019.
 //  Copyright © 2019 Рабочий. All rights reserved.
 //
 
 import UIKit
 
 class NewsPhotoTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource = [PhotoItem]()
     
+    private let newsPhotoCollectionViewCellNib = UINib(nibName: "NewsPhotoCollectionViewCell", bundle: nil)
     private let newsPhotoCollectionReusableCellIdentifier = "NewsPhotoCollectionCellReusableIdentifier"
     
     var viewModel: NewsPhotoTableViewCellViewModel? {
@@ -22,6 +24,8 @@ class NewsPhotoTableViewCell: UITableViewCell {
             guard let viewModel = viewModel else { return }
             
             dataSource = viewModel.photosItems
+            
+            collectionView.register(newsPhotoCollectionViewCellNib, forCellWithReuseIdentifier: newsPhotoCollectionReusableCellIdentifier)
             collectionView.reloadData()
         }
     }

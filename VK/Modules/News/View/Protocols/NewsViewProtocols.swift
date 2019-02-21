@@ -8,12 +8,13 @@
 
 import Foundation
 
-protocol NewsViewInput: class {
+protocol NewsViewInput: class, AutoMockable {
     var output: NewsViewOutput { get set }
     
-    func display(newsItems: [NewsItem])
+    func display(sections: [NewsTableSection])
 }
 
-protocol NewsViewOutput: class {
+protocol NewsViewOutput: class, AutoMockable {
     func viewDidLoad()
+    func textChanged(data: String)
 }

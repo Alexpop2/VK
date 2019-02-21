@@ -15,35 +15,21 @@ import KeychainAccess
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var app: Application?
     
-    //Манагера сюда перенести
+    // MARK: - launch screen manager
     
-    //список ассамблей в массиве Assembly
-    
-    //конфигуратор 
+    var launchManager = ApplicationAssembly.resolver.resolve(LaunchManager.self)!
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        VKSdk.forceLogout()
+        //VKSdk.forceLogout()
         
-        window = UIWindow()
-        let app = Application()
-        app.delegate = self
-        window?.rootViewController = app.loadRootVC()
-        window?.makeKeyAndVisible()
-        self.app = app
+        window = launchManager.generateWindow()
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
         return true
-    }
-}
-
-extension AppDelegate: AppDelegateOutput {
-    func present(controller: UIViewController?) {
-        window?.rootViewController = controller
     }
 }

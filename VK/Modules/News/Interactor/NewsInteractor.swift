@@ -11,67 +11,42 @@ import Foundation
 class NewsInteractor {
     private var interactorOutput: NewsInteractorOutput!
     
-    var database: DatabaseServiceInput!
+    var keyValueStorage: KeyValueStorageInput!
     var internetService: InternetServiceInput!
+    var newsfeedParser: NewsfeedParserInput!
     
     var token: String = ""
 }
 
 extension NewsInteractor: NewsInteractorInput {
+    func searchNews(byText: String) {
+        let url = URL(string: "https://api.vk.com/method/newsfeed.search?access_token=\(token)&v=5.52&extended=1&q=\(byText.encodeUrl)")
+        internetService.loadData(fromURL: url, parseInto: Newsfeed.self, success: { (response: Newsfeed) in
+            self.newsfeedParser.parse(data: response, completion: { (sections) in
+                self.interactorOutput.setDataSource(parsedInput: sections)
+            })
+        }) { (code) in
+            print("Error")
+        }
+    }
     
     func loadToken() {
-        guard let token = database.loadToken() else {
-            interactorOutput.authorizationRequired()
-            return
+        keyValueStorage.loadValue(byKey: "vk-token") { (data) in
+            guard let token = data else {
+                interactorOutput.authorizationRequired()
+                return
+            }
+            self.token = token
         }
-        self.token = token
     }
     
     func getNews() {
+        //print(token)
         let url = URL(string: "https://api.vk.com/method/newsfeed.get?access_token=\(token)&v=5.52")
         internetService.loadData(fromURL: url, parseInto: Newsfeed.self, success: { (response: Newsfeed) in
-            
-            guard let newsItems = response.response.items else {
-                return
-            }
-            var parsedItems = [NewsItem]()
-            
-            for newsItem in newsItems {
-                switch newsItem.type {
-                case "post":
-                    guard let text = newsItem.text else { continue }
-                    parsedItems.append(NewsItem(id: newsItem.source_id, text: "ID \(newsItem.source_id) \(text)", newsType: newsItem.type))
-                    guard let attachments = newsItem.attachments else { continue }
-                    for attachment in attachments {
-                        switch attachment.type {
-                        case "photo":
-                            parsedItems.append(NewsItem(id: newsItem.source_id,
-                                                        text: "ID \(newsItem.source_id)",
-                                                        newsType: "one_photo",
-                                                        photo: attachment.photo))
-                        default:
-                            continue
-                        }
-                    }
-                case "photo":
-                    guard let photos = newsItem.photos else { continue }
-                    guard let photosItems = photos.items else { continue }
-                    parsedItems.append(NewsItem(id: newsItem.source_id,
-                                                text: "ID \(newsItem.source_id)",
-                                                newsType: newsItem.type,
-                                                photos: photosItems))
-                case "wall_photo":
-                    guard let photos = newsItem.photos else { continue }
-                    guard let photosItems = photos.items else { continue }
-                    parsedItems.append(NewsItem(id: newsItem.source_id,
-                                                text: "ID \(newsItem.source_id)",
-                                                newsType: newsItem.type,
-                                                photos: photosItems))
-                default:
-                    continue
-                }
-            }
-            self.interactorOutput.setDataSource(parsedInput: parsedItems)
+            self.newsfeedParser.parse(data: response, completion: { (sections) in
+                self.interactorOutput.setDataSource(parsedInput: sections)
+            })
         }) { (code) in
             print("Error")
         }

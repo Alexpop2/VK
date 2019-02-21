@@ -12,130 +12,22 @@
         <!--News View Controller-->
         <scene sceneID="B6Z-3E-fgO">
             <objects>
-                <tableViewController storyboardIdentifier="NewsViewControllerIdentifier" id="QkM-uR-F2n" customClass="NewsViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewsViewController" id="QkM-uR-F2n" customClass="NewsViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="6We-5h-mr0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Nye-Wn-cjF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="QkM-uR-F2n" id="HcL-dZ-SjM"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsTextCellReusableIdentifier" id="wYF-ph-wi2" customClass="NewsTextTableViewCell" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYF-ph-wi2" id="zG1-6z-bSb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-2O-bLe">
-                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
-                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <string key="userLabel">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LNc-2O-bLe" secondAttribute="bottom" id="Aqv-qs-xSj"/>
-                                        <constraint firstItem="LNc-2O-bLe" firstAttribute="top" secondItem="zG1-6z-bSb" secondAttribute="topMargin" id="ZWB-e8-9Xd"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="LNc-2O-bLe" secondAttribute="trailing" id="cSn-wV-rlz"/>
-                                        <constraint firstItem="LNc-2O-bLe" firstAttribute="leading" secondItem="zG1-6z-bSb" secondAttribute="leadingMargin" id="gBr-Hg-MyJ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="titleLabel" destination="LNc-2O-bLe" id="lST-dq-TDh"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsPhotoCellReusableIdentifier" id="sE5-cc-8vK" customClass="NewsPhotoTableViewCell" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sE5-cc-8vK" id="Zrc-Ly-No1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc9-WF-85v">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HTO-ps-wNn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qXs-D6-O9z">
-                                                <size key="itemSize" width="50" height="50"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsPhotoCollectionCellReusableIdentifier" id="1aM-gx-hUc" customClass="NewsPhotoCollectionViewCell" customModule="VK" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vjY-aq-DVk">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            </imageView>
-                                                        </subviews>
-                                                    </view>
-                                                    <constraints>
-                                                        <constraint firstItem="vjY-aq-DVk" firstAttribute="leading" secondItem="1aM-gx-hUc" secondAttribute="leading" id="51S-Y1-rGY"/>
-                                                        <constraint firstItem="vjY-aq-DVk" firstAttribute="top" secondItem="1aM-gx-hUc" secondAttribute="top" id="PcH-bJ-f2N"/>
-                                                        <constraint firstAttribute="bottom" secondItem="vjY-aq-DVk" secondAttribute="bottom" id="vKr-o8-ehh"/>
-                                                        <constraint firstAttribute="trailing" secondItem="vjY-aq-DVk" secondAttribute="trailing" id="wRo-2u-Bl6"/>
-                                                    </constraints>
-                                                    <connections>
-                                                        <outlet property="imageView" destination="vjY-aq-DVk" id="3V9-69-LCK"/>
-                                                    </connections>
-                                                </collectionViewCell>
-                                            </cells>
-                                        </collectionView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="kc9-WF-85v" firstAttribute="top" secondItem="Zrc-Ly-No1" secondAttribute="top" id="ABV-Eh-GV6"/>
-                                        <constraint firstAttribute="bottom" secondItem="HTO-ps-wNn" secondAttribute="bottom" id="Bce-8H-HWu"/>
-                                        <constraint firstItem="kc9-WF-85v" firstAttribute="leading" secondItem="Zrc-Ly-No1" secondAttribute="leading" id="JQ9-Pd-BTI"/>
-                                        <constraint firstAttribute="trailing" secondItem="HTO-ps-wNn" secondAttribute="trailing" id="K46-ug-J6O"/>
-                                        <constraint firstItem="HTO-ps-wNn" firstAttribute="top" secondItem="kc9-WF-85v" secondAttribute="top" id="jqU-lP-jYk"/>
-                                        <constraint firstAttribute="trailing" secondItem="kc9-WF-85v" secondAttribute="trailing" id="nB4-sI-7iR"/>
-                                        <constraint firstItem="HTO-ps-wNn" firstAttribute="leading" secondItem="Zrc-Ly-No1" secondAttribute="leading" id="wAc-En-bV3"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="collectionView" destination="HTO-ps-wNn" id="lmU-X9-dzZ"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsWallPhotoCellReusableIdentifier" id="S8a-5J-Rjm" customClass="NewsWallPhotoTableViewCell" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S8a-5J-Rjm" id="R8i-hY-ohV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WxT-2N-mlE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="WxT-2N-mlE" firstAttribute="top" secondItem="R8i-hY-ohV" secondAttribute="top" id="3ZF-MU-YaU"/>
-                                        <constraint firstAttribute="trailing" secondItem="WxT-2N-mlE" secondAttribute="trailing" id="AKb-Fe-fJ0"/>
-                                        <constraint firstItem="WxT-2N-mlE" firstAttribute="leading" secondItem="R8i-hY-ohV" secondAttribute="leading" id="NFv-vb-tpQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="WxT-2N-mlE" secondAttribute="bottom" id="nux-1J-72k"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="wallPhotoImageView" destination="WxT-2N-mlE" id="DFC-PC-pyS"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsEmptyCellReusableIdentifier" rowHeight="0.0" id="XRc-VS-ZUb">
-                                <rect key="frame" x="0.0" y="187.5" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XRc-VS-ZUb" id="0rX-fM-yPt">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
@@ -148,6 +40,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string
                             <outlet property="delegate" destination="QkM-uR-F2n" id="XUy-nF-FWi"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="Nye-Wn-cjF" id="di9-dU-Nci"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6G-9H-CWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

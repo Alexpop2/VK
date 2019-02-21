@@ -2,7 +2,7 @@
 //  NewsTitleTableViewCell.swift
 //  VK
 //
-//  Created by Рабочий on 08/02/2019.
+//  Created by Рабочий on 16/02/2019.
 //  Copyright © 2019 Рабочий. All rights reserved.
 //
 
@@ -14,8 +14,8 @@ class NewsTitleTableViewCell: UITableViewCell {
     
     var viewModel: NewsTitleTableViewCellViewModel? {
         didSet {
-            //guard let viewModel = viewModel else { return }
-            //titleLabel.text = viewModel.title
+            guard let viewModel = viewModel else { return }
+            titleLabel.text = viewModel.title
         }
     }
     
