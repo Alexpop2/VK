@@ -22,6 +22,9 @@ final class ServicesAssembly: Assembly {
         container.register(AuthorizationService.self) { resolver in
             AuthorizationService()
             }.inObjectScope(.transient)
+        container.register(NewsfeedParser.self) { resolver in
+            NewsfeedParser()
+            }.inObjectScope(.transient)
     }
     
 }

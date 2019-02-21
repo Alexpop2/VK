@@ -9,6 +9,8 @@
 import Foundation
 import KeychainAccess
 
+// MARK: - Storage for keys
+
 class KeyValueStorage: KeyValueStorageInput {
 
     private let keychain = Keychain()

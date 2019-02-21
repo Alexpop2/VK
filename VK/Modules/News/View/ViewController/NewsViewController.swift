@@ -8,11 +8,15 @@
 
 import UIKit
 
+// MARK: - UITableViewController with UISearchController included
+
 class NewsViewController: UITableViewController {
 
     private var viewOutput: NewsViewOutput!
     
     //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    private var searchController: UISearchController!
     
     private let newsTitleTableViewCellNib = UINib(nibName: "NewsTitleTableViewCell", bundle: nil)
     private let newsTitleReusableCellIdentifier = "NewsTitleCellReusableIdentifier"
@@ -31,15 +35,18 @@ class NewsViewController: UITableViewController {
     private let newsVideoTableViewCellNib = UINib(nibName: "NewsVideoTableViewCell", bundle: nil)
     private let newsVideoReusableCellIdentifier = "NewsVideoCellReusableIdentifier"
     
+    private let newsFooterTableViewCellNib = UINib(nibName: "NewsFooterTableViewCell", bundle: nil)
+    private let newsFooterReusableCellIdentifier = "NewsFooterCellReusableIdentifier"
+    
     private var dataSource = [NewsItem]()
     
     private var sections = [NewsTableSection]()
+    private var searchSections = [NewsTableSection]()
+    private var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-    
         setUpUI()
         viewOutput.viewDidLoad()
         //display(newsItems: [NewsItem(text: "1", newsType: "post")])
@@ -62,12 +69,27 @@ extension NewsViewController {
         tableView.register(newsPhotoTableViewCellNib, forCellReuseIdentifier: newsPhotoReusableCellIdentifier)
         tableView.register(newsWallPhotoTableViewCellNib, forCellReuseIdentifier: newsWallPhotoReusableCellIdentifier)
         tableView.register(newsVideoTableViewCellNib, forCellReuseIdentifier: newsVideoReusableCellIdentifier)
+        tableView.register(newsFooterTableViewCellNib, forCellReuseIdentifier: newsFooterReusableCellIdentifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.sectionHeaderHeight = 20
-        tableView.sectionFooterHeight = 20
+        tableView.sectionHeaderHeight = 10
+        tableView.sectionFooterHeight = 10
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    private func createUIViewSeparator(y: CGFloat) -> UIView {
+        let result = UIView()
+        
+        let width = tableView.bounds.width
+        let sepFrame = CGRect(x: 0, y: y, width: width, height: 0.5)
+        
+        let sep = CALayer()
+        sep.frame = sepFrame
+        sep.backgroundColor = tableView.separatorColor?.cgColor
+        result.layer.addSublayer(sep)
+        
+        return result
     }
 }
 
@@ -101,11 +123,11 @@ extension NewsViewController {
         let section = self.sections[indexPath.section]
         let newsElement = section.newsItems[indexPath.row]
         switch newsElement.newsType {
-        case "title":
+        case .title:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsTitleReusableCellIdentifier) as! NewsTitleTableViewCell
             cell.viewModel = newsElement
             return cell
-        case "post":
+        case .post:
             if(newsElement.text != "") {
                 let cell = tableView.dequeueReusableCell(withIdentifier: newsTextReusableCellIdentifier) as! NewsTextTableViewCell
                 cell.viewModel = newsElement
@@ -115,20 +137,25 @@ extension NewsViewController {
                 //cell.isHidden = true
                 return cell
             }
-        case "photo":
+        case .photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsPhotoReusableCellIdentifier) as! NewsPhotoTableViewCell
             cell.viewModel = newsElement
             return cell
-        case "wall_photo":
+        case .wall_photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsPhotoReusableCellIdentifier) as! NewsPhotoTableViewCell
             cell.viewModel = newsElement
             return cell
-        case "one_photo":
+        case .one_photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsWallPhotoReusableCellIdentifier) as! NewsWallPhotoTableViewCell
             cell.viewModel = newsElement
             return cell
-        case "video":
+        case .video:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsVideoReusableCellIdentifier) as! NewsVideoTableViewCell
+            cell.viewModel = newsElement
+            return cell
+        case .like_repost:
+            let cell = tableView.dequeueReusableCell(withIdentifier: newsFooterReusableCellIdentifier) as! NewsFooterTableViewCell
+            cell.separatorInset = UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
             cell.viewModel = newsElement
             return cell
         default:
@@ -150,18 +177,18 @@ extension NewsViewController {
         let section = self.sections[indexPath.section]
         let viewModel = section.newsItems[indexPath.row]
         switch viewModel.newsType {
-        case "title":
+        case .title:
             return UITableView.automaticDimension
-        case "post":
+        case .post:
             if(viewModel.text == "") {
                 return 0
             }
             return UITableView.automaticDimension
-        case "photo":
+        case .photo:
             return UITableView.automaticDimension
-        case "wall_photo":
+        case .wall_photo:
             return UITableView.automaticDimension
-        case "one_photo":
+        case .one_photo:
             if(viewModel.widthWallPhoto == 0) {
                 return UITableView.automaticDimension
             }
@@ -170,7 +197,7 @@ extension NewsViewController {
                 return UITableView.automaticDimension
             }
             return height
-        case "video":
+        case .video:
             if(viewModel.widthVideoFrame == 0) {
                 return UITableView.automaticDimension
             }
@@ -179,6 +206,8 @@ extension NewsViewController {
                 return UITableView.automaticDimension
             }
             return height
+        case .like_repost:
+            return 63
         default:
             return 0
         }
@@ -186,8 +215,29 @@ extension NewsViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(section == 0) {
-            return CGFloat.leastNormalMagnitude
+            //return CGFloat.leastNormalMagnitude
         }
-        return 20
+        return 10
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if(section == 0) {
+            //return createUIViewSeparator(y: 0)
+        }
+        return createUIViewSeparator(y: 9.5)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return createUIViewSeparator(y: -0.5)
+    }
+}
+
+extension NewsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        output.textChanged(data: searchText)
+    }
+}
+
+extension NewsViewController: UISearchDisplayDelegate {
+    
 }

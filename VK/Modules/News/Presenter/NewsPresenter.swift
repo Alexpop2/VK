@@ -56,6 +56,14 @@ extension NewsPresenter: NewsInteractorOutput {
 }
 
 extension NewsPresenter: NewsViewOutput {
+    func textChanged(data: String) {
+        if(data == "") {
+            interactor.getNews()
+        } else {
+            interactor.searchNews(byText: data)
+        }
+    }
+    
     func viewDidLoad() {
         interactor.loadToken()
         interactor.getNews()

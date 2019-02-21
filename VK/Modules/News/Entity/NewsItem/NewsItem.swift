@@ -8,43 +8,25 @@
 
 import Foundation
 
+enum NewsItemsType: String {
+    case post = "post"
+    case title = "title"
+    case photo = "photo"
+    case one_photo = "one_photo"
+    case video = "video"
+    case wall_photo = "wall_photo"
+    case like_repost = "like_repost"
+    case empty = ""
+}
+
 class NewsItem {
-    var text: String
-    var newsType: String
-    var photos: [PhotoItem]
+    var text: String = ""
+    var newsType: NewsItemsType = .empty
+    var photos: [PhotoItem] = []
     var photo: PhotoItem?
     var video: Video?
-    var id: Int
-    
-    init(id: Int, text: String, newsType: String) {
-        self.text = text
-        self.newsType = newsType
-        self.photos = []
-        self.id = id
-    }
-    
-    init(id: Int, text: String, newsType: String, photos: [PhotoItem]) {
-        self.text = text
-        self.newsType = newsType
-        self.photos = photos
-        self.id = id
-    }
-    
-    init(id: Int, text: String, newsType: String, photo: PhotoItem?) {
-        self.text = text
-        self.newsType = newsType
-        self.photo = photo
-        self.photos = []
-        self.id = id
-    }
-    
-    init(id: Int, text: String, newsType: String, video: Video?) {
-        self.text = text
-        self.newsType = newsType
-        self.photos = []
-        self.id = id
-        self.video = video
-    }
+    var likes: Int = 0
+    var reposts: Int = 0
 }
 
 extension NewsItem: NewsTitleTableViewCellViewModel {
@@ -92,4 +74,15 @@ extension NewsItem: NewsVideoTableViewCellViewModel {
     var videoFrame: String {
         return video?.first_frame_320 ?? video?.photo_320 ?? ""
     }
+}
+
+extension NewsItem: NewsFooterTableViewCellViewModel {
+    var likesValue: Int {
+        return likes
+    }
+    
+    var repostsValue: Int {
+        return reposts
+    }
+    
 }

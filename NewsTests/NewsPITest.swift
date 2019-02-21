@@ -25,6 +25,7 @@ class NewsPITest: XCTestCase {
         let keyValueStorage = KeyValueStorageInputManualMock()
         presenterDelegate = NewsPresenterDelegateMock()
         let internetService = InternetServiceInputManualMock()
+        let newsfeedParser = NewsfeedParser()
         
         viewControllerInput.output = presenter
         presenter.interactor = interactor
@@ -33,6 +34,7 @@ class NewsPITest: XCTestCase {
         
         interactor.keyValueStorage = keyValueStorage
         interactor.internetService = internetService
+        interactor.newsfeedParser = newsfeedParser
         
         presenter.delegate = presenterDelegate
     }
