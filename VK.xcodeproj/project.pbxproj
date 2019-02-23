@@ -46,6 +46,14 @@
 		602ABE4F21FCC1F40070980A /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE4E21FCC1F40070980A /* AuthorizationService.swift */; };
 		602ABE5221FCC22D0070980A /* AuthorizationServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */; };
 		602ABE5421FCC5330070980A /* AuthorizationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602ABE5321FCC5330070980A /* AuthorizationData.swift */; };
+		6032314922209C480041496B /* AudioResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032314822209C480041496B /* AudioResponse.swift */; };
+		6032314D22209FAF0041496B /* NewsAudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032314B22209FAF0041496B /* NewsAudioTableViewCell.swift */; };
+		6032314E22209FAF0041496B /* NewsAudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6032314C22209FAF0041496B /* NewsAudioTableViewCell.xib */; };
+		6032315022209FCD0041496B /* NewsAudioTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032314F22209FCD0041496B /* NewsAudioTableViewCellViewModel.swift */; };
+		603231522220AAAF0041496B /* NewsAudioTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231512220AAAF0041496B /* NewsAudioTableViewCellDelegate.swift */; };
+		603231542220B1E20041496B /* AudioPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231532220B1E20041496B /* AudioPacket.swift */; };
+		603231572220DA650041496B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231562220DA650041496B /* AudioPlayer.swift */; };
+		603231592220DEA60041496B /* AudioPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231582220DEA60041496B /* AudioPlayerData.swift */; };
 		604C5C7A221F04840045F1A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C5C79221F04840045F1A4 /* String+Extension.swift */; };
 		604C5C7D221F0C740045F1A4 /* LoadDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C5C7C221F0C740045F1A4 /* LoadDataOperation.swift */; };
 		606CF54C220DF06F00D70A3F /* NewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */; };
@@ -144,6 +152,14 @@
 		602ABE4E21FCC1F40070980A /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		602ABE5121FCC22D0070980A /* AuthorizationServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocols.swift; sourceTree = "<group>"; };
 		602ABE5321FCC5330070980A /* AuthorizationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationData.swift; sourceTree = "<group>"; };
+		6032314822209C480041496B /* AudioResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioResponse.swift; sourceTree = "<group>"; };
+		6032314B22209FAF0041496B /* NewsAudioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAudioTableViewCell.swift; sourceTree = "<group>"; };
+		6032314C22209FAF0041496B /* NewsAudioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsAudioTableViewCell.xib; sourceTree = "<group>"; };
+		6032314F22209FCD0041496B /* NewsAudioTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAudioTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		603231512220AAAF0041496B /* NewsAudioTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAudioTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		603231532220B1E20041496B /* AudioPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPacket.swift; sourceTree = "<group>"; };
+		603231562220DA650041496B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		603231582220DEA60041496B /* AudioPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerData.swift; sourceTree = "<group>"; };
 		604C5C79221F04840045F1A4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		604C5C7C221F0C740045F1A4 /* LoadDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataOperation.swift; sourceTree = "<group>"; };
 		606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -426,6 +442,27 @@
 			path = AuthorizationService;
 			sourceTree = "<group>";
 		};
+		6032314A22209F9B0041496B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				6032314B22209FAF0041496B /* NewsAudioTableViewCell.swift */,
+				6032314C22209FAF0041496B /* NewsAudioTableViewCell.xib */,
+				6032314F22209FCD0041496B /* NewsAudioTableViewCellViewModel.swift */,
+				603231512220AAAF0041496B /* NewsAudioTableViewCellDelegate.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		603231552220B1E50041496B /* AudioItem */ = {
+			isa = PBXGroup;
+			children = (
+				603231562220DA650041496B /* AudioPlayer.swift */,
+				603231532220B1E20041496B /* AudioPacket.swift */,
+				603231582220DEA60041496B /* AudioPlayerData.swift */,
+			);
+			path = AudioItem;
+			sourceTree = "<group>";
+		};
 		604C5C7B221F0C640045F1A4 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +474,7 @@
 		606CF54D220DF50300D70A3F /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				6032314A22209F9B0041496B /* Audio */,
 				60DE1B29221EBAD700666D9A /* Footer */,
 				6097A0862218293F00F6B9E2 /* Video */,
 				60A5A89A220E61640074A75B /* WallPhoto */,
@@ -460,9 +498,11 @@
 		606CF555220DFFE900D70A3F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				603231552220B1E50041496B /* AudioItem */,
 				60DE1B22221E293B00666D9A /* NewsItem */,
 				606CF556220DFFFA00D70A3F /* NewsfeedResponse.swift */,
 				6097A08D2218376400F6B9E2 /* NewsTableSection.swift */,
+				6032314822209C480041496B /* AudioResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -731,6 +771,11 @@
 					602ABE0621FCB3E50070980A = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					60DE1AEE221C6BE400666D9A = {
 						CreatedOnToolsVersion = 10.1;
@@ -779,6 +824,7 @@
 				602ABE1221FCB3E60070980A /* Assets.xcassets in Resources */,
 				6007F3BF2217664B0016A6AA /* NewsPhotoTableViewCell.xib in Resources */,
 				6007F3C3221766F90016A6AA /* NewsPhotoCollectionViewCell.xib in Resources */,
+				6032314E22209FAF0041496B /* NewsAudioTableViewCell.xib in Resources */,
 				6007F3B7221757B90016A6AA /* NewsTextTableViewCell.xib in Resources */,
 				60DE1B30221EBB7D00666D9A /* NewsFooterTableViewCell.xib in Resources */,
 			);
@@ -863,6 +909,7 @@
 				6007F3972215CC6A0016A6AA /* StoryboardName.swift in Sources */,
 				6097A0952218475700F6B9E2 /* AutoMockable.swift in Sources */,
 				600303062204BDE800EC014C /* KeyValueStorage.swift in Sources */,
+				603231592220DEA60041496B /* AudioPlayerData.swift in Sources */,
 				6097A0972218492600F6B9E2 /* AutoMockable.generated.swift in Sources */,
 				602ABE4321FCB6F60070980A /* AuthorizationInteractor.swift in Sources */,
 				6007F3B6221757B90016A6AA /* NewsTextTableViewCell.swift in Sources */,
@@ -878,10 +925,14 @@
 				6007F3A52217098B0016A6AA /* RoutersAssembly.swift in Sources */,
 				60A5A89E220E619A0074A75B /* NewsWallPhotoTableViewCellViewModel.swift in Sources */,
 				6007F3C2221766F90016A6AA /* NewsPhotoCollectionViewCell.swift in Sources */,
+				603231522220AAAF0041496B /* NewsAudioTableViewCellDelegate.swift in Sources */,
+				603231572220DA650041496B /* AudioPlayer.swift in Sources */,
 				6007F3C6221769A50016A6AA /* NewsWallPhotoTableViewCell.swift in Sources */,
+				603231542220B1E20041496B /* AudioPacket.swift in Sources */,
 				60DE1B13221DFD6400666D9A /* NewsfeedParserProtocols.swift in Sources */,
 				6007F38E2214CAE10016A6AA /* AuthorizationRouter.swift in Sources */,
 				6007F3942215CBFA0016A6AA /* UIViewController+Extension.swift in Sources */,
+				6032315022209FCD0041496B /* NewsAudioTableViewCellViewModel.swift in Sources */,
 				60A5A895220E53A90074A75B /* NewsPhotoTableViewCellViewModel.swift in Sources */,
 				6097A08E2218376400F6B9E2 /* NewsTableSection.swift in Sources */,
 				6007F3A1221704350016A6AA /* PresentersAssembly.swift in Sources */,
@@ -897,6 +948,7 @@
 				602ABE4921FCB7260070980A /* AuthorizationPresenterProtocols.swift in Sources */,
 				558601B2970D9283962107EA /* NewsInteractor.swift in Sources */,
 				60DE1B2C221EBB3300666D9A /* NewsFooterTableViewCellViewModel.swift in Sources */,
+				6032314922209C480041496B /* AudioResponse.swift in Sources */,
 				60DE1B15221DFE7300666D9A /* NewsfeedParser.swift in Sources */,
 				6007F3BE2217664B0016A6AA /* NewsPhotoTableViewCell.swift in Sources */,
 				6007F3A3221706F80016A6AA /* ApplicationAssembly.swift in Sources */,
@@ -913,6 +965,7 @@
 				606CF554220DF5F800D70A3F /* NewsTitleTableViewCellViewModel.swift in Sources */,
 				606CF55A220E0C8B00D70A3F /* InternetService.swift in Sources */,
 				3D42E2C4D0E21C3A1CED7DA9 /* NewsViewController.swift in Sources */,
+				6032314D22209FAF0041496B /* NewsAudioTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

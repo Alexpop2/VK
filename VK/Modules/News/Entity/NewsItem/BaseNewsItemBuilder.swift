@@ -42,6 +42,10 @@ extension BaseNewsItemBuilder: NewsItemBuilder {
         newsItem.video = data
     }
     
+    func buildAudio(data: Audio) {
+        newsItem.audio = data
+    }
+    
     func buildLikes(data: Int) {
         newsItem.likes = data
     }

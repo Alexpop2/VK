@@ -26,8 +26,10 @@ class KeyValueStorageInputManualMock: KeyValueStorageInput {
 }
 
 class InternetServiceInputManualMock: InternetServiceInput {
+    
     func loadData<T>(fromURL: URL?,
                      parseInto container: T.Type,
+                     queue: OperationQueue,
                      success: @escaping (T) -> Void,
                      failure: @escaping (Int) -> Void) where T : Decodable, T : Encodable {
         guard let asset = NSDataAsset(name: "newsfeed_test") else { return }

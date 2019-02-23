@@ -325,6 +325,21 @@ class NewsInteractorInputMock: NewsInteractorInput {
         searchNewsByTextClosure?(byText)
     }
 
+    //MARK: - playAudio
+
+    var playAudioAudioPacketCallsCount = 0
+    var playAudioAudioPacketCalled: Bool {
+        return playAudioAudioPacketCallsCount > 0
+    }
+    var playAudioAudioPacketReceivedAudioPacket: AudioPacket?
+    var playAudioAudioPacketClosure: ((AudioPacket) -> Void)?
+
+    func playAudio(audioPacket: AudioPacket) {
+        playAudioAudioPacketCallsCount += 1
+        playAudioAudioPacketReceivedAudioPacket = audioPacket
+        playAudioAudioPacketClosure?(audioPacket)
+    }
+
 }
 class NewsInteractorOutputMock: NewsInteractorOutput {
 
@@ -474,6 +489,21 @@ class NewsViewOutputMock: NewsViewOutput {
         textChangedDataCallsCount += 1
         textChangedDataReceivedData = data
         textChangedDataClosure?(data)
+    }
+
+    //MARK: - audioPlayClicked
+
+    var audioPlayClickedAudioPacketCallsCount = 0
+    var audioPlayClickedAudioPacketCalled: Bool {
+        return audioPlayClickedAudioPacketCallsCount > 0
+    }
+    var audioPlayClickedAudioPacketReceivedAudioPacket: AudioPacket?
+    var audioPlayClickedAudioPacketClosure: ((AudioPacket) -> Void)?
+
+    func audioPlayClicked(audioPacket: AudioPacket) {
+        audioPlayClickedAudioPacketCallsCount += 1
+        audioPlayClickedAudioPacketReceivedAudioPacket = audioPacket
+        audioPlayClickedAudioPacketClosure?(audioPacket)
     }
 
 }
