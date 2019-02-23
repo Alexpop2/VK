@@ -9,24 +9,20 @@
 import Foundation
 
 class InternetService { //VKInternetService
-    private var operationQueue = OperationQueue()
-    
-    init() {
-        operationQueue.maxConcurrentOperationCount = 1
-    }
 }
 
 extension InternetService: InternetServiceInput {
     func loadData<T>(fromURL: URL?,
                      parseInto container: T.Type,
+                     queue: OperationQueue,
                      success: @escaping (T) -> Void,
                      failure: @escaping (Int) -> Void) where T : Codable {
         guard let url = fromURL else {
             failure(102)
             return
         }
-        operationQueue.cancelAllOperations()
-        operationQueue.addOperation(LoadDataOperation(completion: { (data) in
+        queue.cancelAllOperations()
+        queue.addOperation(LoadDataOperation(completion: { (data) in
             self.parse(data: data,
                        container: container,
                        success: success,

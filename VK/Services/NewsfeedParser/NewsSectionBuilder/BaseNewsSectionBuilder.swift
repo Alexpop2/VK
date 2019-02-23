@@ -43,6 +43,13 @@ extension BaseNewsSectionBuilder: NewsSectionBuilder {
         section.newsItems.append(newsItemBuilder.getResult())
     }
     
+    func buildAudio(item: Audio) {
+        newsItemBuilder.reset()
+        newsItemBuilder.buildAudio(data: item)
+        newsItemBuilder.buildType(data: .audio)
+        section.newsItems.append(newsItemBuilder.getResult())
+    }
+    
     func buildPhotos(items: [PhotoItem]) {
         newsItemBuilder.reset()
         newsItemBuilder.buildPhotos(data: items)

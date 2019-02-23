@@ -14,6 +14,7 @@ protocol NewsInteractorInput: class, AutoMockable {
     func loadToken()
     func getNews()
     func searchNews(byText: String)
+    func playAudio(audioPacket: AudioPacket)
 }
 
 protocol NewsInteractorOutput: class, AutoMockable {

@@ -11,6 +11,7 @@ import Foundation
 protocol InternetServiceInput: class { //InternetService
     func loadData<T>(fromURL: URL?,
                      parseInto container: T.Type,
+                     queue: OperationQueue,
                      success: @escaping (T) -> Void,
                      failure: @escaping (Int) -> Void) where T : Codable
 }

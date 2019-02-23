@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsAudioCellReusableIdentifier" rowHeight="66" id="KGk-i7-Jjw" customClass="NewsAudioTableViewCell" customModule="VK" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JNW-Rz-dLE">
+                        <rect key="frame" x="75" y="46" width="230" height="2"/>
+                        <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-vi-Mqc">
+                        <rect key="frame" x="75" y="13" width="230" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt3-cW-ZkS">
+                        <rect key="frame" x="5" y="0.5" width="65" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="6dA-b7-nVo"/>
+                            <constraint firstAttribute="width" secondItem="xt3-cW-ZkS" secondAttribute="height" multiplier="1:1" id="eXJ-n7-DRi"/>
+                        </constraints>
+                        <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <state key="normal" image="baseline_play_circle_outline_black_48pt"/>
+                        <state key="selected" image="baseline_pause_circle_outline_black_48pt"/>
+                        <connections>
+                            <action selector="playClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nY9-72-tip"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2A9-vi-Mqc" firstAttribute="leading" secondItem="xt3-cW-ZkS" secondAttribute="trailing" constant="5" id="5Kr-gS-ke9"/>
+                    <constraint firstAttribute="trailing" secondItem="2A9-vi-Mqc" secondAttribute="trailing" constant="15" id="Cmn-xw-IFt"/>
+                    <constraint firstItem="JNW-Rz-dLE" firstAttribute="trailing" secondItem="2A9-vi-Mqc" secondAttribute="trailing" id="DOH-gA-9Gf"/>
+                    <constraint firstItem="JNW-Rz-dLE" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="-7" id="K37-IP-8gR"/>
+                    <constraint firstItem="xt3-cW-ZkS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PvZ-Cx-g7L"/>
+                    <constraint firstItem="2A9-vi-Mqc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="bZW-1v-AD2"/>
+                    <constraint firstItem="xt3-cW-ZkS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="osK-C5-jRF"/>
+                    <constraint firstItem="JNW-Rz-dLE" firstAttribute="leading" secondItem="2A9-vi-Mqc" secondAttribute="leading" id="u6q-jZ-aIG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="playButton" destination="xt3-cW-ZkS" id="yMJ-BD-rPM"/>
+                <outlet property="progressView" destination="JNW-Rz-dLE" id="TE7-GW-fX2"/>
+                <outlet property="songNameLabel" destination="2A9-vi-Mqc" id="uxg-QY-gk7"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="56.671664167916049"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="baseline_pause_circle_outline_black_48pt" width="96" height="96"/>
+        <image name="baseline_play_circle_outline_black_48pt" width="96" height="96"/>
+    </resources>
+</document>

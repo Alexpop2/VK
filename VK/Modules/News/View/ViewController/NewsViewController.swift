@@ -35,6 +35,9 @@ class NewsViewController: UITableViewController {
     private let newsVideoTableViewCellNib = UINib(nibName: "NewsVideoTableViewCell", bundle: nil)
     private let newsVideoReusableCellIdentifier = "NewsVideoCellReusableIdentifier"
     
+    private let newsAudioTableViewCellNib = UINib(nibName: "NewsAudioTableViewCell", bundle: nil)
+    private let newsAudioReusableCellIdentifier = "NewsAudioCellReusableIdentifier"
+    
     private let newsFooterTableViewCellNib = UINib(nibName: "NewsFooterTableViewCell", bundle: nil)
     private let newsFooterReusableCellIdentifier = "NewsFooterCellReusableIdentifier"
     
@@ -64,6 +67,7 @@ extension NewsViewController {
         tableView.register(newsPhotoTableViewCellNib, forCellReuseIdentifier: newsPhotoReusableCellIdentifier)
         tableView.register(newsWallPhotoTableViewCellNib, forCellReuseIdentifier: newsWallPhotoReusableCellIdentifier)
         tableView.register(newsVideoTableViewCellNib, forCellReuseIdentifier: newsVideoReusableCellIdentifier)
+        tableView.register(newsAudioTableViewCellNib, forCellReuseIdentifier: newsAudioReusableCellIdentifier)
         tableView.register(newsFooterTableViewCellNib, forCellReuseIdentifier: newsFooterReusableCellIdentifier)
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
@@ -153,6 +157,11 @@ extension NewsViewController {
             cell.separatorInset = UIEdgeInsets(top: CGFloat(10), left: CGFloat(10), bottom: CGFloat(10), right: CGFloat(10))
             cell.viewModel = newsElement
             return cell
+        case .audio:
+            let cell = tableView.dequeueReusableCell(withIdentifier: newsAudioReusableCellIdentifier) as! NewsAudioTableViewCell
+            cell.delegate = self
+            cell.viewModel = newsElement
+            return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsEmptyReusableCellIdentifier)! as UITableViewCell
             //cell.isHidden = true
@@ -203,6 +212,8 @@ extension NewsViewController {
             return height
         case .like_repost:
             return 63
+        case .audio:
+            return 66
         default:
             return 0
         }
@@ -240,4 +251,10 @@ extension NewsViewController: UISearchBarDelegate {
 
 extension NewsViewController: UISearchDisplayDelegate {
     
+}
+
+extension NewsViewController: NewsAudioTableViewCellDelegate {
+    func audioPlayClicked(audioPacket: AudioPacket) {
+        output.audioPlayClicked(audioPacket: audioPacket)
+    }
 }

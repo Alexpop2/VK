@@ -15,6 +15,7 @@ protocol NewsItemBuilder {
     func buildPhotos(data: [PhotoItem])
     func buildPhoto(data: PhotoItem)
     func buildVideo(data: Video)
+    func buildAudio(data: Audio)
     func buildLikes(data: Int)
     func buildReposts(data: Int)
     func getResult() -> NewsItem

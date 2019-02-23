@@ -17,4 +17,5 @@ protocol NewsViewInput: class, AutoMockable {
 protocol NewsViewOutput: class, AutoMockable {
     func viewDidLoad()
     func textChanged(data: String)
+    func audioPlayClicked(audioPacket: AudioPacket)
 }

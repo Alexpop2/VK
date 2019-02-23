@@ -68,6 +68,9 @@ class NewsSectionDirector {
                 case "video":
                     guard let video = attachment.video else { continue }
                     builder.buildVideo(item: video)
+                case "audio":
+                    guard let audio = attachment.audio else { continue }
+                    builder.buildAudio(item: audio)
                 default:
                     continue
                 }
