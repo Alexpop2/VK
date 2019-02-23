@@ -47,6 +47,8 @@ class NewsViewController: UITableViewController {
     private var searchSections = [NewsTableSection]()
     private var searching = false
     
+    private var audioCells = [Int: NewsAudioTableViewCell]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -158,10 +160,14 @@ extension NewsViewController {
             cell.viewModel = newsElement
             return cell
         case .audio:
-            let cell = tableView.dequeueReusableCell(withIdentifier: newsAudioReusableCellIdentifier) as! NewsAudioTableViewCell
-            cell.delegate = self
-            cell.viewModel = newsElement
-            return cell
+            //let cell = tableView.dequeueReusableCell(withIdentifier: newsAudioReusableCellIdentifier) as! NewsAudioTableViewCell
+            if(audioCells[newsElement.audioId] == nil) {
+                let cell = Bundle.main.loadNibNamed("NewsAudioTableViewCell", owner: self, options: nil)?[0] as! NewsAudioTableViewCell
+                cell.delegate = self
+                cell.viewModel = newsElement
+                audioCells[newsElement.audioId] = cell
+            }
+            return audioCells[newsElement.audioId]!
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: newsEmptyReusableCellIdentifier)! as UITableViewCell
             //cell.isHidden = true

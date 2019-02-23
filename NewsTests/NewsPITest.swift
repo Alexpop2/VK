@@ -49,13 +49,13 @@ class NewsPITest: XCTestCase {
                 XCTAssertGreaterThan(section.newsItems.count, 0, "Empty section test")
                 for newsItem in section.newsItems {
                     switch newsItem.newsType {
-                    case "video":
+                    case .video:
                         XCTAssertNotNil(newsItem.video, "Empty video test in video type item")
-                    case "photo":
+                    case .photo:
                         XCTAssertGreaterThan(newsItem.photos.count, 0, "Empty photos test in photos type item")
-                    case "one_photo":
+                    case .one_photo:
                         XCTAssertNotNil(newsItem.photo, "Empty photo test in full width photo")
-                    case "wall_photo":
+                    case .wall_photo:
                         XCTAssertGreaterThan(newsItem.photos.count, 0, "Empty photos test in wall photos type item")
                     default:
                         continue
