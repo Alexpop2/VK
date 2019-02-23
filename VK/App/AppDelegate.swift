@@ -25,16 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //VKSdk.forceLogout()
         
-        
-        //UIApplication.shared.beginReceivingRemoteControlEvents()
-        
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-        }
-        
-        
         window = launchManager.generateWindow()
         return true
     }

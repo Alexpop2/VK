@@ -54,6 +54,8 @@
 		603231542220B1E20041496B /* AudioPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231532220B1E20041496B /* AudioPacket.swift */; };
 		603231572220DA650041496B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231562220DA650041496B /* AudioPlayer.swift */; };
 		603231592220DEA60041496B /* AudioPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603231582220DEA60041496B /* AudioPlayerData.swift */; };
+		6032315C22215A530041496B /* AudioServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032315B22215A530041496B /* AudioServiceProtocols.swift */; };
+		6032315E22215A5E0041496B /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032315D22215A5E0041496B /* AudioService.swift */; };
 		604C5C7A221F04840045F1A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C5C79221F04840045F1A4 /* String+Extension.swift */; };
 		604C5C7D221F0C740045F1A4 /* LoadDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C5C7C221F0C740045F1A4 /* LoadDataOperation.swift */; };
 		606CF54C220DF06F00D70A3F /* NewsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */; };
@@ -160,6 +162,8 @@
 		603231532220B1E20041496B /* AudioPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPacket.swift; sourceTree = "<group>"; };
 		603231562220DA650041496B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		603231582220DEA60041496B /* AudioPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerData.swift; sourceTree = "<group>"; };
+		6032315B22215A530041496B /* AudioServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceProtocols.swift; sourceTree = "<group>"; };
+		6032315D22215A5E0041496B /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		604C5C79221F04840045F1A4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		604C5C7C221F0C740045F1A4 /* LoadDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadDataOperation.swift; sourceTree = "<group>"; };
 		606CF54B220DF06F00D70A3F /* NewsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 		602ABE3A21FCB40F0070980A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6032315A22215A2B0041496B /* AudioService */,
 				60DE1B11221DFD4A00666D9A /* NewsfeedParser */,
 				606CF558220E0C6300D70A3F /* InternetService */,
 				600302FF2204BD6C00EC014C /* KeyValueStorage */,
@@ -453,14 +458,25 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
-		603231552220B1E50041496B /* AudioItem */ = {
+		6032315A22215A2B0041496B /* AudioService */ = {
+			isa = PBXGroup;
+			children = (
+				6032315F22215AC00041496B /* Data */,
+				6032315B22215A530041496B /* AudioServiceProtocols.swift */,
+				6032315D22215A5E0041496B /* AudioService.swift */,
+			);
+			path = AudioService;
+			sourceTree = "<group>";
+		};
+		6032315F22215AC00041496B /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				603231562220DA650041496B /* AudioPlayer.swift */,
 				603231532220B1E20041496B /* AudioPacket.swift */,
 				603231582220DEA60041496B /* AudioPlayerData.swift */,
+				6032314822209C480041496B /* AudioResponse.swift */,
 			);
-			path = AudioItem;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		604C5C7B221F0C640045F1A4 /* Operations */ = {
@@ -498,11 +514,9 @@
 		606CF555220DFFE900D70A3F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				603231552220B1E50041496B /* AudioItem */,
 				60DE1B22221E293B00666D9A /* NewsItem */,
 				606CF556220DFFFA00D70A3F /* NewsfeedResponse.swift */,
 				6097A08D2218376400F6B9E2 /* NewsTableSection.swift */,
-				6032314822209C480041496B /* AudioResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -936,12 +950,14 @@
 				60A5A895220E53A90074A75B /* NewsPhotoTableViewCellViewModel.swift in Sources */,
 				6097A08E2218376400F6B9E2 /* NewsTableSection.swift in Sources */,
 				6007F3A1221704350016A6AA /* PresentersAssembly.swift in Sources */,
+				6032315C22215A530041496B /* AudioServiceProtocols.swift in Sources */,
 				602ABE4D21FCB7B10070980A /* AuthorizationViewProtocols.swift in Sources */,
 				60DE1B18221E027700666D9A /* PostParser.swift in Sources */,
 				60A5A890220E4DB80074A75B /* NewsTextTableViewCellViewModel.swift in Sources */,
 				604C5C7A221F04840045F1A4 /* String+Extension.swift in Sources */,
 				60DE1B28221E29EA00666D9A /* BaseNewsItemBuilder.swift in Sources */,
 				608B51DE2204992300728026 /* AuthorizationViewController.swift in Sources */,
+				6032315E22215A5E0041496B /* AudioService.swift in Sources */,
 				60DE1B1D221E048D00666D9A /* NewsSectionBuilderProtocols.swift in Sources */,
 				6007F3A922170E890016A6AA /* BaseNewsRouter.swift in Sources */,
 				606CF55C220E0CA200D70A3F /* InternetServiceProtocols.swift in Sources */,
