@@ -11,5 +11,9 @@ import Foundation
 struct AudioPacket {
     var ownerId: Int
     var audioId: Int
-    var callBack: (String, Int) -> Void
+    var title: String
+    var artist: String
+    var stopClosure: (() -> Void)
+    var setProgressClosure: ((Float,Bool) -> Void)
+    var playClosure: (() -> Void)
 }

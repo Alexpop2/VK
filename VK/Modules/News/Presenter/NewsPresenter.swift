@@ -57,7 +57,7 @@ extension NewsPresenter: NewsInteractorOutput {
 
 extension NewsPresenter: NewsViewOutput {
     func audioPlayClicked(audioPacket: AudioPacket) {
-        interactor.getAudioData(audioPacket: audioPacket)
+        interactor.playAudio(audioPacket: audioPacket)
     }
     
     func textChanged(data: String) {

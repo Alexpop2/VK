@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 import MediaPlayer
 
-class AudioPlayer {
+class AudioPlayer: NSObject {
     private var updater : CADisplayLink! = nil
     private var player : AVPlayer! = nil
     private var playing = false
@@ -27,7 +27,7 @@ class AudioPlayer {
               setProgress: @escaping (Float,Bool) -> Void,
               play: @escaping () -> Void) {
         playQueue.sync {
-            playerDidFinishPlaying(note: NSNotification())
+            fullStop()
             stopClosure = stop
             setProgressClosure = setProgress
             playClosure = play
@@ -54,10 +54,27 @@ class AudioPlayer {
                 }
                 
                 player.play()
+                playClosure()
                 //startTime.text = "\(player.currentTime)"
             } else {
                 if(player != nil) {
                     player.pause()
+                    stopClosure()
+                }
+            }
+        }
+    }
+    
+    func wakeUpPreviuosPlay() {
+        playQueue.sync {
+            playing = !playing
+            if playing {
+                player.play()
+                playClosure()
+            } else {
+                if(player != nil) {
+                    player.pause()
+                    stopClosure()
                 }
             }
         }
@@ -71,18 +88,25 @@ class AudioPlayer {
         }
     }
     
+    func fullStop() {
+        if(updater != nil) {
+            updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.common)
+            updater.invalidate()
+            updater = nil
+            playing = false
+            setProgressClosure(0.0,false)
+            stopClosure()
+        }
+    }
+    
     @objc func playerDidFinishPlaying(note: NSNotification) {
-        updater.remove(from: RunLoop.current, forMode: RunLoop.Mode.common)
-        updater.invalidate()
-        updater = nil
-        setProgressClosure(0.0,false)
-        stopClosure()
+        fullStop()
     }
     
     func setupLockScreen(){
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.nextTrackCommand.isEnabled = true
-        commandCenter.togglePlayPauseCommand.addTarget(self, action: #selector(controlPause))
+        commandCenter.togglePlayPauseCommand.addTarget(self, action: #selector(AudioPlayer.controlPause))
         MPNowPlayingInfoCenter.default().nowPlayingInfo =
             [MPMediaItemPropertyTitle: "\(audioData.artist) - \(audioData.title)"]
     }

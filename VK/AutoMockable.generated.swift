@@ -325,19 +325,19 @@ class NewsInteractorInputMock: NewsInteractorInput {
         searchNewsByTextClosure?(byText)
     }
 
-    //MARK: - getAudioData
+    //MARK: - playAudio
 
-    var getAudioDataAudioPacketCallsCount = 0
-    var getAudioDataAudioPacketCalled: Bool {
-        return getAudioDataAudioPacketCallsCount > 0
+    var playAudioAudioPacketCallsCount = 0
+    var playAudioAudioPacketCalled: Bool {
+        return playAudioAudioPacketCallsCount > 0
     }
-    var getAudioDataAudioPacketReceivedAudioPacket: AudioPacket?
-    var getAudioDataAudioPacketClosure: ((AudioPacket) -> Void)?
+    var playAudioAudioPacketReceivedAudioPacket: AudioPacket?
+    var playAudioAudioPacketClosure: ((AudioPacket) -> Void)?
 
-    func getAudioData(audioPacket: AudioPacket) {
-        getAudioDataAudioPacketCallsCount += 1
-        getAudioDataAudioPacketReceivedAudioPacket = audioPacket
-        getAudioDataAudioPacketClosure?(audioPacket)
+    func playAudio(audioPacket: AudioPacket) {
+        playAudioAudioPacketCallsCount += 1
+        playAudioAudioPacketReceivedAudioPacket = audioPacket
+        playAudioAudioPacketClosure?(audioPacket)
     }
 
 }
