@@ -55,7 +55,6 @@ class AudioPlayer: NSObject {
                 
                 player.play()
                 playClosure()
-                //startTime.text = "\(player.currentTime)"
             } else {
                 if(player != nil) {
                     player.pause()
