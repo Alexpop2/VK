@@ -13,6 +13,7 @@ protocol NewsSectionBuilder: class {
     func buildHeader(title: String)
     func buildPost(text: String)
     func buildVideo(item: Video)
+    func buildAudio(item: Audio)
     func buildPhotos(items: [PhotoItem])
     func buildOnePhoto(item: PhotoItem)
     func buildFooter(likes: Int, reposts: Int)

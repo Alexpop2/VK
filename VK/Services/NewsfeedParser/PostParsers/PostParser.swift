@@ -14,6 +14,7 @@ class PostParser {
     func normalizeResponse(items: [NewsItems]) -> [NewsItems] {
         var usedPhotos = [Int]()
         var usedVideos = [Int]()
+        var usedAudios = [Int]()
         var usedPosts = [Int]()
         var previousPostSourceID = 0
         var previousPostDate = 0
@@ -41,6 +42,9 @@ class PostParser {
                     case "video":
                         guard let video = attachment.video else { continue }
                         usedVideos.append(video.id)
+                    case "audio":
+                        guard let audio = attachment.audio else { continue }
+                        usedAudios.append(audio.id)
                     default:
                         continue
                     }

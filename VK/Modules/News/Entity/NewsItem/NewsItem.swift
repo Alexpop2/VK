@@ -14,6 +14,7 @@ enum NewsItemsType: String {
     case photo = "photo"
     case one_photo = "one_photo"
     case video = "video"
+    case audio = "audio"
     case wall_photo = "wall_photo"
     case like_repost = "like_repost"
     case empty = ""
@@ -25,6 +26,7 @@ class NewsItem {
     var photos: [PhotoItem] = []
     var photo: PhotoItem?
     var video: Video?
+    var audio: Audio?
     var likes: Int = 0
     var reposts: Int = 0
 }
@@ -85,4 +87,22 @@ extension NewsItem: NewsFooterTableViewCellViewModel {
         return reposts
     }
     
+}
+
+extension NewsItem: NewsAudioTableViewCellViewModel {
+    var audioId: Int {
+        return audio?.id ?? -1
+    }
+    
+    var audioOwnerId: Int {
+        return audio?.owner_id ?? 0
+    }
+    
+    var audioTitle: String {
+        return audio?.title ?? ""
+    }
+    
+    var audioArtist: String {
+        return audio?.artist ?? ""
+    }
 }

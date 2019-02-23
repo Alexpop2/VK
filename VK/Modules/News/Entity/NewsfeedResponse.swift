@@ -59,6 +59,14 @@ struct Attachments: Codable {
     var type: String
     var photo: PhotoItem?
     var video: Video?
+    var audio: Audio?
+}
+
+struct Audio: Codable {
+    var id: Int
+    var owner_id: Int
+    var artist: String
+    var title: String
 }
 
 struct Video: Codable {

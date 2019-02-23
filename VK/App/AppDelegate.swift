@@ -10,6 +10,7 @@ import UIKit
 import VK_ios_sdk
 import Swinject
 import KeychainAccess
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //VKSdk.forceLogout()
+        
+        
+        //UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+        }
+        
         
         window = launchManager.generateWindow()
         return true
