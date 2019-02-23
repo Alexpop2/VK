@@ -15,7 +15,7 @@ final class ServicesAssembly: Assembly {
     func assemble(container: Container) {
         container.register(InternetService.self) { resolver in
             InternetService()
-            }.inObjectScope(.transient)
+            }.inObjectScope(.container)
         container.register(KeyValueStorage.self) { resolver in
             KeyValueStorage()
             }.inObjectScope(.transient)
@@ -25,6 +25,9 @@ final class ServicesAssembly: Assembly {
         container.register(NewsfeedParser.self) { resolver in
             NewsfeedParser()
             }.inObjectScope(.transient)
+        container.register(AudioService.self) { resolver in
+            AudioService()
+            }.inObjectScope(.container)
     }
     
 }

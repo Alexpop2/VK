@@ -26,6 +26,8 @@ class NewsAudioTableViewCell: UITableViewCell {
             
             songNameLabel.text = "\(viewModel.audioArtist) - \(viewModel.audioTitle)"
             progressView.progress = 0.0
+            
+            print(Unmanaged.passUnretained(progressView).toOpaque())
         }
     }
     
@@ -40,5 +42,12 @@ class NewsAudioTableViewCell: UITableViewCell {
                                                             self.progressView.setProgress(progressValue, animated: animated)},
                                                            playClosure: { self.playButton.isSelected = true }))
     }
+    
+//    override func prepareForReuse() {
+//        songNameLabel.text = nil
+//        progressView.progress = 0.0
+//        playButton.image(for: .normal)
+//        super.prepareForReuse()
+//    }
     
 }
