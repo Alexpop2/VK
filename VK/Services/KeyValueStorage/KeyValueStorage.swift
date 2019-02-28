@@ -11,9 +11,12 @@ import KeychainAccess
 
 // MARK: - Storage for keys
 
-class KeyValueStorage: KeyValueStorageInput {
-
+class KeyValueStorage {
     private let keychain = Keychain()
+    private var storageOutput: KeyValueStorageOutput!
+}
+
+extension KeyValueStorage: KeyValueStorageInput {
     
     func addValue(forKey: String, data: String) { //называть не token а addValueForKey и т.п.
         keychain[forKey] = data

@@ -26,6 +26,10 @@ class AuthorizationViewController: UIViewController {
 }
 
 extension AuthorizationViewController: AuthorizationViewInput {
+    var controller: AuthorizationViewController {
+        return self
+    }
+    
     var output: AuthorizationViewOutput {
         get {
             return viewOutput

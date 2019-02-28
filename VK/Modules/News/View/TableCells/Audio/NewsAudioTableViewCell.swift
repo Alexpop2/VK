@@ -27,7 +27,7 @@ class NewsAudioTableViewCell: UITableViewCell {
             songNameLabel.text = "\(viewModel.audioArtist) - \(viewModel.audioTitle)"
             progressView.progress = 0.0
             
-            print(Unmanaged.passUnretained(progressView).toOpaque())
+            //print(Unmanaged.passUnretained(progressView).toOpaque())
         }
     }
     

@@ -95,6 +95,10 @@ extension NewsViewController {
 }
 
 extension NewsViewController: NewsViewInput {
+    var controller: NewsViewController {
+        return self
+    }
+    
     var output: NewsViewOutput {
         get {
             return viewOutput

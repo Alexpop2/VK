@@ -13,11 +13,11 @@ import Swinject
 final class PresentersAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(AuthorizationPresenter.self) { resolver in
-            AuthorizationPresenter()
+        container.register(AuthorizationPresenterInput.self) { resolver in
+            AuthorizationPresenter(resolver: resolver)
             }.inObjectScope(.weak)
-        container.register(NewsPresenter.self) { resolver in
-            NewsPresenter()
+        container.register(NewsPresenterInput.self) { resolver in
+            NewsPresenter(resolver: resolver)
             }.inObjectScope(.weak)
     }
     

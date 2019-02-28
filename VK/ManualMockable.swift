@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class KeyValueStorageInputManualMock: KeyValueStorageInput {
+    
     func loadValue(byKey: String, loaded: (String?) -> Void) {
         loaded("mock-token")
     }

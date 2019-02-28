@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NewsViewInput: class, AutoMockable {
+    var controller: NewsViewController { get }
     var output: NewsViewOutput { get set }
     
     func display(sections: [NewsTableSection])

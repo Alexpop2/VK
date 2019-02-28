@@ -11,6 +11,7 @@ import UIKit
 
 protocol AuthorizationViewInput: class, AutoMockable {
     var output: AuthorizationViewOutput { get set }
+    var controller: AuthorizationViewController { get }
     
     func showAuthScreen(data: AuthorizationData)
 }

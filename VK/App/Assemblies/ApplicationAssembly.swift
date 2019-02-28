@@ -16,7 +16,9 @@ final class ApplicationAssembly {
             ManagerAssembly(),
             PresentersAssembly(),
             ServicesAssembly(),
-            RoutersAssembly()
+            RoutersAssembly(),
+            InteractorsAssembly(),
+            ViewsAssembly()
             ])
         return assembler
     }()

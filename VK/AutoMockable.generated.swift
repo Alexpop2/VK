@@ -244,6 +244,11 @@ class AuthorizationViewInputMock: AuthorizationViewInput {
         set(value) { underlyingOutput = value }
     }
     var underlyingOutput: AuthorizationViewOutput!
+    var controller: AuthorizationViewController {
+        get { return underlyingController }
+        set(value) { underlyingController = value }
+    }
+    var underlyingController: AuthorizationViewController!
 
     //MARK: - showAuthScreen
 
@@ -439,6 +444,11 @@ class NewsRouterMock: NewsRouter {
 
 }
 class NewsViewInputMock: NewsViewInput {
+    var controller: NewsViewController {
+        get { return underlyingController }
+        set(value) { underlyingController = value }
+    }
+    var underlyingController: NewsViewController!
     var output: NewsViewOutput {
         get { return underlyingOutput }
         set(value) { underlyingOutput = value }

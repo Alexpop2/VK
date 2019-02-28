@@ -13,20 +13,20 @@ import Swinject
 final class ServicesAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(InternetService.self) { resolver in
+        container.register(InternetServiceInput.self) { resolver in
             InternetService()
             }.inObjectScope(.container)
-        container.register(KeyValueStorage.self) { resolver in
+        container.register(KeyValueStorageInput.self) { resolver in
             KeyValueStorage()
             }.inObjectScope(.transient)
-        container.register(AuthorizationService.self) { resolver in
+        container.register(AuthorizationServiceInput.self) { resolver in
             AuthorizationService()
             }.inObjectScope(.transient)
-        container.register(NewsfeedParser.self) { resolver in
+        container.register(NewsfeedParserInput.self) { resolver in
             NewsfeedParser()
             }.inObjectScope(.transient)
-        container.register(AudioService.self) { resolver in
-            AudioService()
+        container.register(AudioServiceInput.self) { resolver in
+            AudioService(resolver: resolver)
             }.inObjectScope(.container)
     }
     

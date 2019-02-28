@@ -8,11 +8,26 @@
 
 import Foundation
 import UIKit
+import Swinject
 
 class AuthorizationPresenter {
+    private let resolver: Resolver
+    
     private weak var presenterDelegate: AuthorizationPresenterDelegate!
-    private var authInteractor: AuthorizationInteractorInput!
-    private weak var authView: AuthorizationViewInput!
+    private lazy var authInteractor: AuthorizationInteractorInput! = {
+        var interactorLazy = self.resolver.resolve(AuthorizationInteractorInput.self)!
+        interactorLazy.output = self
+        return interactorLazy
+    }()
+    private lazy var authView: AuthorizationViewInput! = {
+        var viewInputLazy = self.resolver.resolve(AuthorizationViewInput.self)!
+        viewInputLazy.output = self
+        return viewInputLazy
+    }()
+    
+    init(resolver: Resolver) {
+        self.resolver = resolver
+    }
 }
 
 extension AuthorizationPresenter: AuthorizationPresenterInput {

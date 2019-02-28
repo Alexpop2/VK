@@ -8,9 +8,15 @@
 
 import Foundation
 import AVFoundation
+import Swinject
 
 class AudioService {
-    var internetService: InternetServiceInput!
+    private let resolver: Resolver
+    
+    lazy var internetService: InternetServiceInput! = {
+        var internetServiceLazy = self.resolver.resolve(InternetServiceInput.self)!
+        return internetServiceLazy
+    }()
     
     private var audioPlayer = AudioPlayer()
     private var currentAudioId = -1
@@ -19,7 +25,9 @@ class AudioService {
     private var audioLoadQueue = OperationQueue()
     private var playingAudioQueue = DispatchQueue(label: "Audio service queue")
     
-    init() {
+    init(resolver: Resolver) {
+        self.resolver = resolver
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .default)
             try AVAudioSession.sharedInstance().setActive(true)

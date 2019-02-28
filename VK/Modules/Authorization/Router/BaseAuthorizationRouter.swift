@@ -28,27 +28,28 @@ final class BaseAuthorizationRouter {
 
 extension BaseAuthorizationRouter: AuthorizationRouter {
     func getConfiguredRootViewController() -> UIViewController {
-        guard let viewController = AuthorizationViewController.instantiateFromStoryboard(with: .authorization) else {
+        guard let viewController = resolver.resolve(AuthorizationViewInput.self) else {
             return UIViewController()
         }
-        let authService = resolver.resolve(AuthorizationService.self)!
-        let presenter = resolver.resolve(AuthorizationPresenter.self)!
-        let interactor = AuthorizationInteractor()
-        let keyValueStorage = resolver.resolve(KeyValueStorage.self)!
+        //let authService = resolver.resolve(AuthorizationService.self)!
+        let presenter = resolver.resolve(AuthorizationPresenterInput.self)!
+        //let interactor = resolver.resolve(AuthorizationInteractorInput.self)!
+        //let keyValueStorage = resolver.resolve(KeyValueStorage.self)!
         
-        viewController.output = presenter
-        presenter.interactor = interactor
-        presenter.view = viewController
-        interactor.output = presenter
+        //viewController.output = presenter
+        //presenter.interactor = interactor
+        //presenter.view = viewController
+        //interactor.output = presenter
         
-        interactor.authService = authService
-        authService.output = interactor
-        interactor.keyValueStorage = keyValueStorage
+        //interactor.authService = authService
+        //authService.output = interactor
+        //interactor.keyValueStorage = keyValueStorage
+        let _ = presenter.view
         
         presenter.delegate = self
         
-        rootViewController = viewController
-        return viewController
+        rootViewController = viewController.controller
+        return viewController.controller
         
     }
     

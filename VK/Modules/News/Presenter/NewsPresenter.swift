@@ -7,11 +7,26 @@
 //
 
 import Foundation
+import Swinject
 
 class NewsPresenter {
+    private let resolver: Resolver
+    
     private weak var presenterDelegate: NewsPresenterDelegate!
-    private weak var moduleView: NewsViewInput!
-    private var moduleInteractor: NewsInteractorInput!
+    private lazy var moduleView: NewsViewInput! = {
+        let viewInput = self.resolver.resolve(NewsViewInput.self)!
+        viewInput.output = self
+        return viewInput
+    }()
+    private lazy var moduleInteractor: NewsInteractorInput! = {
+        let interactor = self.resolver.resolve(NewsInteractorInput.self)!
+        interactor.output = self
+        return interactor
+    }()
+    
+    init(resolver: Resolver) {
+        self.resolver = resolver
+    }
 }
 
 extension NewsPresenter: NewsPresenterInput {

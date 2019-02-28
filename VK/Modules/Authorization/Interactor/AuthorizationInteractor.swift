@@ -7,13 +7,27 @@
 //
 
 import Foundation
+import Swinject
 
 class AuthorizationInteractor {
+    private let resolver: Resolver
+    
     private var interactorOutput: AuthorizationInteractorOutput!
     
-    var keyValueStorage: KeyValueStorageInput!
-    var authService: AuthorizationServiceInput!
+    private lazy var keyValueStorage: KeyValueStorageInput! = {
+        var storageLazy = self.resolver.resolve(KeyValueStorageInput.self)!
+        return storageLazy
+    }()
     
+    private lazy var authService: AuthorizationServiceInput! = {
+        var authServiceLazy = self.resolver.resolve(AuthorizationServiceInput.self)!
+        authServiceLazy.output = self
+        return authServiceLazy
+    }()
+    
+    init(resolver: Resolver) {
+        self.resolver = resolver
+    }
 }
 
 extension AuthorizationInteractor: AuthorizationInteractorInput {
@@ -52,3 +66,5 @@ extension AuthorizationInteractor: AuthorizationServiceOutput {
         interactorOutput.presentAuthorizationScreen(data: data)
     }
 }
+
+extension AuthorizationInteractor: KeyValueStorageOutput {}

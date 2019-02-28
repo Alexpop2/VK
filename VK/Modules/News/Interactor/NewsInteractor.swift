@@ -7,21 +7,39 @@
 //
 
 import Foundation
+import Swinject
 
 class NewsInteractor {
+    private let resolver: Resolver
+    
     private var interactorOutput: NewsInteractorOutput!
     
-    var keyValueStorage: KeyValueStorageInput!
-    var internetService: InternetServiceInput!
-    var newsfeedParser: NewsfeedParserInput!
-    var audioSerice: AudioServiceInput!
+    lazy var keyValueStorage: KeyValueStorageInput! = {
+        var storageLazy = self.resolver.resolve(KeyValueStorageInput.self)!
+        return storageLazy
+    }()
+    
+    lazy var internetService: InternetServiceInput! = {
+        var internetServiceLazy = self.resolver.resolve(InternetServiceInput.self)!
+        return internetServiceLazy
+    }()
+    
+    lazy var newsfeedParser: NewsfeedParserInput! = {
+        var parserLazy = self.resolver.resolve(NewsfeedParserInput.self)!
+        return parserLazy
+    }()
+    
+    lazy var audioSerice: AudioServiceInput! = {
+        var audioServiceLazy = self.resolver.resolve(AudioServiceInput.self)!
+        return audioServiceLazy
+    }()
     
     var token: String = ""
     
     private var newsLoadQueue = OperationQueue()
     
-    init() {
-        newsLoadQueue.maxConcurrentOperationCount = 1
+    init(resolver: Resolver) {
+        self.resolver = resolver
     }
 }
 
@@ -72,3 +90,5 @@ extension NewsInteractor: NewsInteractorInput {
         }
     }
 }
+
+extension NewsInteractor: KeyValueStorageOutput {}
